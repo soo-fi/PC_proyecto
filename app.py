@@ -53,7 +53,7 @@ st.markdown("""
 # =============================================================================
 @st.cache_data
 def cargar_datos():
-    df = pd.read_excel("base_articulos.xlsx").fillna("")
+    df = pd.read_excel("df_articulos.xlsx").fillna("")
     # Formatear fecha para eliminar "00:00:00"
     df.loc[:, "fecha"] = pd.to_datetime(df.loc[:, "fecha"], errors="coerce").dt.strftime("%Y-%m-%d").fillna("")
     return df
