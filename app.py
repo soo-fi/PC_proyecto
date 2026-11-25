@@ -51,6 +51,15 @@ st.markdown("""
 # =============================================================================
 # 2. CARGA DE BASE DE DATOS DE ARTÍCULOS Y COLUMNISTAS
 # =============================================================================
+@st.cache_data
+def cargar_datos():
+    df = pd.read_excel("base_articulos.xlsx").fillna("")
+    # Formatear fecha para eliminar "00:00:00"
+    df.loc[:, "fecha"] = pd.to_datetime(df.loc[:, "fecha"], errors="coerce").dt.strftime("%Y-%m-%d").fillna("")
+    return df
+
+df_articulos = cargar_datos()
+
 
 # Contar artículos por diario usando .loc
 total_art = len(df_articulos)
