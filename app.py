@@ -55,7 +55,7 @@ def cargar_datos():
     df_articulos = pd.read_excel("df_articulos.xlsx").fillna("")
     # Formatear fecha para eliminar "00:00:00"
     df_articulos.loc[:, "fecha"] = pd.to_datetime(df_articulos.loc[:, "fecha"], errors="coerce").dt.strftime("%Y-%m-%d").fillna("")
-    return df
+    return df_articulos
 
 df_articulos = cargar_datos()
 
