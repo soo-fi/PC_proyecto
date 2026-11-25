@@ -198,7 +198,7 @@ st.subheader("🔎 Buscador de columnistas y sus artículos")
 col_f1, col_f2 = st.columns([1, 2.5])
 with col_f1:
     diario_sel = st.selectbox(
-        "Filtrar por diario:",
+         placeholder="Selecciona un diario",
          options=["Todos", "Perú21", "La República"],
          key="filtro_diario_contexto"
     )
@@ -207,15 +207,14 @@ with col_f1:
 if diario_sel == "Todos":
     df_filtrado = df_articulos.copy()
 else:
-    df_filtrado = df[df["diario"].str.strip().str.lower() == diario_sel.lower()]
+    df_filtrado = df_articulos[df_articulos["diario"].str.strip().str.lower() == diario_sel.lower()]
 
 lista_autores = sorted(df_filtrado["autor"].dropna().unique().tolist())
 
 with col_f2:
     autores_sel = st.multiselect(
-           "Selecciona o escribe el nombre de uno o más columnistas:",
             options=lista_autores,
-            placeholder="Escribe para buscar (ej. Rosa M. Palacios)",
+            placeholder="Selecciona o escribe el nombre de uno o más columnistas:",
             key="filtro_autor_contexto"
     )
 
@@ -231,7 +230,7 @@ else:
                 
             with col_foto:
                 # Cambia "Imagen" por el nombre exacto de tu columna de URLs de fotos en base_articulos.xlsx
-                urls_validas = articulos_autor["Imagen"].dropna()
+                urls_validas = articulos_autor["foto_url"].dropna()
                 url_foto = urls_validas.iloc[0] if not urls_validas.empty else ""
                     
                 if isinstance(url_foto, str) and url_foto.startswith("http"):
