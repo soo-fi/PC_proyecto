@@ -238,10 +238,10 @@ else:
                 else:
                     st.markdown(f"**👤 {autor}**")
                 
-             with col_arts:
-                 st.markdown(f"#### {autor} ({len(articulos_autor)} {'artículo' if len(articulos_autor) == 1 else 'artículos'})")
+            with col_arts:
+                st.markdown(f"#### {autor} ({len(articulos_autor)} {'artículo' if len(articulos_autor) == 1 else 'artículos'})")
                     
-                 for _, fila in articulos_autor.iterrows():
+                for _, fila in articulos_autor.iterrows():
                      fecha = fila.get("Fecha", "Sin fecha")
                      titulo = fila.get("Titulo", "Sin título")
                      diario_art = fila.get("Diario", "")
