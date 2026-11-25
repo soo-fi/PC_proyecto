@@ -15,7 +15,7 @@ import pandas as pd
 # 1. CONFIGURACIÓN INICIAL DE LA PÁGINA
 # =============================================================================
 st.set_page_config(
-    page_title="Análisis Discursivo: Segunda Vuelta Perú 2026 </h1",
+    page_title="Análisis Discursivo: Segunda Vuelta Perú 2026",
     page_icon="🇵🇪",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -24,7 +24,7 @@ st.set_page_config(
 # Estilos CSS personalizados
 st.markdown("""
     <style>
-    .main-title {
+    main-title {
         font-size: 2.8rem;
         font-weight: 800;
         color: #1E293B;
@@ -68,7 +68,7 @@ cant_larep = len(df_articulos.loc[df_articulos.loc[:, "diario"] == "La Repúblic
 # =============================================================================
 # 3. PORTADA / HERO SECTION (CON FOTOS DE LOS CANDIDATOS)
 # =============================================================================
-st.markdown('<p class="main-title">Discurso Mediático y Voto en la Segunda Vuelta Perú 2026</p>', unsafe_allow_html=True)
+st.markdown('<p class="main-title">Discurso Mediático y Voto en la Segunda Vuelta Perú 2026</h1>', unsafe_allow_html=True)
 st.markdown('<p class="sub-title">Análisis computacional del lenguaje y emociones en columnas de opinión de Perú21 y La República sobre Keiko Fujimori y Roberto Sánchez.</p>', unsafe_allow_html=True)
 
 col_keiko, col_corpus, col_sanchez = st.columns([1.2, 1.4, 1.2])
