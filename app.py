@@ -90,14 +90,13 @@ with col_corpus:
             st.metric(
                 label="Artículos Analizados",
                 value=total_art,
-                delta=f"Perú21: {cant_peru21} | La República: {cant_larep}"
+                delta=f"P21: {cant_peru21} | LP: {cant_larep}"
             )
         with c_ora:
-            # Ejemplo: si en Perú21 tienes 36 (Keiko) + 90 (Sánchez) = 126, súmale las de La República
             st.metric(
                 label="Oraciones Analizadas",
                 value="230",  # <--- PON AQUÍ LA SUMA TOTAL DE ORACIONES DE AMBOS DIARIOS
-                delta="114 (P21) | 116 (LP)" # <--- COMPLETA CON LOS DE LA REPÚBLICA
+                delta="P21: 114 | LP: 150 " # <--- COMPLETA CON LOS DE LA REPÚBLICA
             )
 
 # --- BLOQUE DERECHO: ROBERTO SÁNCHEZ ---
