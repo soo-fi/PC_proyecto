@@ -194,36 +194,37 @@ st.divider()
     # --- EXPLORADOR INTERACTIVO DE LA BASE DE DATOS (USANDO .loc) ---
 st.subheader("🔎 Buscador de columnistas y sus artículos")
 
-    # Extraer lista única de autores individuales (separando coautorías con "|")
+# Extraer lista única de autores individuales (separando coautorías con "|")
 col_f1, col_f2 = st.columns([1, 2.5])
 with col_f1:
     diario_sel = st.selectbox(
-    "Filtrar por diario:",
-     options=["Todos", "Perú21", "La República"],
-     key="filtro_diario_contexto"
-        )
-
+        "Filtrar por diario:",
+         options=["Todos", "Perú21", "La República"],
+         key="filtro_diario_contexto"
+    )
+# Filtramos el DataFrame según el diario elegido
+# (Asegúrate de que 'Diario' y 'Autor' coincidan con los nombres exactos de tus columnas en base_articulos.xlsx)
 if diario_sel == "Todos":
     df_filtrado = df.copy()
 else:
-    df_filtrado = df[df["Diario"].str.strip().str.lower() == diario_sel.lower()]
+    df_filtrado = df[df["diario"].str.strip().str.lower() == diario_sel.lower()]
 
-lista_autores = sorted(df_filtrado["Autor"].dropna().unique().tolist())
+lista_autores = sorted(df_filtrado["autor"].dropna().unique().tolist())
 
 with col_f2:
     autores_sel = st.multiselect(
            "Selecciona o escribe el nombre de uno o más columnistas:",
             options=lista_autores,
-            placeholder="Escribe para buscar (ej. Cecilia Valenzuela, Mirko Lauer...)",
+            placeholder="Escribe para buscar (ej. Rosa M. Palacios)",
             key="filtro_autor_contexto"
-        )
+    )
 
-    # --- RESULTADOS: FOTO DESDE EL EXCEL + ARTÍCULOS ---
+# --- RESULTADOS: FOTO DESDE EL EXCEL + ARTÍCULOS ---
 if not autores_sel:
-    st.caption("Selecciona o escribe el nombre de un columnista para visualizar su fotografía, los títulos y fechas de sus artículos analizados.")
+    st.caption("Selecciona o escribe el nombre de un columnista.")
 else:
     for autor in autores_sel:
-        articulos_autor = df_filtrado[df_filtrado["Autor"] == autor]
+        articulos_autor = df_filtrado[df_filtrado["autor"] == autor]
             
         with st.container(border=True):
             col_foto, col_arts = st.columns([1, 4])
