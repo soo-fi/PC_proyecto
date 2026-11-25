@@ -191,7 +191,7 @@ with tab_contexto:
     
 st.divider()
 
-    # --- EXPLORADOR INTERACTIVO DE LA BASE DE DATOS (USANDO .loc) ---
+# --- EXPLORADOR INTERACTIVO DE LA BASE DE DATOS (USANDO .loc) ---
 st.subheader("🔎 Buscador de columnistas y sus artículos")
 
 # Extraer lista única de autores individuales (separando coautorías con "|")
@@ -205,7 +205,7 @@ with col_f1:
 # Filtramos el DataFrame según el diario elegido
 # (Asegúrate de que 'Diario' y 'Autor' coincidan con los nombres exactos de tus columnas en base_articulos.xlsx)
 if diario_sel == "Todos":
-    df_filtrado = df.copy()
+    df_filtrado = df_articulos.copy()
 else:
     df_filtrado = df[df["diario"].str.strip().str.lower() == diario_sel.lower()]
 
