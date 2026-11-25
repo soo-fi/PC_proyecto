@@ -15,7 +15,7 @@ import pandas as pd
 # 1. CONFIGURACIÓN INICIAL DE LA PÁGINA
 # =============================================================================
 st.set_page_config(
-    page_title="Análisis Discursivo: Segunda Vuelta Perú 2026",
+    page_title="Análisis discursivo: Segunda Vuelta Perú 2026",
     page_icon="🇵🇪",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -68,7 +68,7 @@ cant_larep = len(df_articulos.loc[df_articulos.loc[:, "diario"] == "La Repúblic
 # =============================================================================
 # 3. PORTADA / HERO SECTION (CON FOTOS DE LOS CANDIDATOS)
 # =============================================================================
-st.markdown('<h1 class="main-title">Discurso Mediático y Voto en la Segunda Vuelta Perú 2026 </h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="main-title"> Representación discursiva de los candidatos presidenciales en la segunda vuelta Perú 2026 </h1>', unsafe_allow_html=True)
 st.markdown('<p class="sub-title">Análisis computacional del Lenguaje y Emociones en columnas de opinión de los diarios Perú21 y La República sobre los candidatos presidenciales Keiko Fujimori y Roberto Sánchez a tres semanas previas de la Segunda Vuelta Presidencial 2026 .</p>', unsafe_allow_html=True)
 
 col_keiko, col_corpus, col_sanchez = st.columns([1.2, 1.4, 1.2])
@@ -88,15 +88,15 @@ with col_corpus:
         c_art, c_ora = st.columns(2)
         with c_art:
             st.metric(
-                label="Artículos Analizados",
+                label="Artículos analizados",
                 value=total_art,
-                delta=f"Perú21: {cant_peru21} | LR: {cant_larep}"
+                delta=f"P21: {cant_peru21} | LR: {cant_larep}"
             )
         with c_ora:
             st.metric(
-                label="Oraciones Analizadas",
+                label="Oraciones analizadas",
                 value="264",  # <--- PON AQUÍ LA SUMA TOTAL DE ORACIONES DE AMBOS DIARIOS
-                delta="Perú21: 114 | LR: 150 " # <--- COMPLETA CON LOS DE LA REPÚBLICA
+                delta="P21: 114 | LR: 150 " # <--- COMPLETA CON LOS DE LA REPÚBLICA
             )
 
 # --- BLOQUE DERECHO: ROBERTO SÁNCHEZ ---
