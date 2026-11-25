@@ -90,13 +90,13 @@ with col_corpus:
             st.metric(
                 label="Artículos Analizados",
                 value=total_art,
-                delta=f"P21: {cant_peru21} | LP: {cant_larep}"
+                delta=f"Perú21: {cant_peru21} | LR: {cant_larep}"
             )
         with c_ora:
             st.metric(
                 label="Oraciones Analizadas",
-                value="230",  # <--- PON AQUÍ LA SUMA TOTAL DE ORACIONES DE AMBOS DIARIOS
-                delta="P21: 114 | LP: 150 " # <--- COMPLETA CON LOS DE LA REPÚBLICA
+                value="264",  # <--- PON AQUÍ LA SUMA TOTAL DE ORACIONES DE AMBOS DIARIOS
+                delta="Perú21: 114 | LR: 150 " # <--- COMPLETA CON LOS DE LA REPÚBLICA
             )
 
 # --- BLOQUE DERECHO: ROBERTO SÁNCHEZ ---
