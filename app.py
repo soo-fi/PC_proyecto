@@ -248,7 +248,7 @@ todos_autores = sorted(list(mapa_fotos_autores.keys()))
 
 autor_sel = st.selectbox(
     "Selecciona el nombre de un columnista:",
-    ["-- Selecciona un autor --"] + todos_autores,
+    ["-- Selecciona un columnista --"] + todos_autores,
     key="select_autor_busqueda"
 )
 
