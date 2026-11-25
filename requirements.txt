@@ -3,5 +3,4 @@ Plaintext
 streamlit
 pandas
 openpyxl
-streamlit-option-menu
-folium
+
