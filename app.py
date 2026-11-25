@@ -198,7 +198,7 @@ st.subheader("🔎 Buscador de columnistas y sus artículos")
 col_f1, col_f2 = st.columns([1, 2.5])
 with col_f1:
     diario_sel = st.selectbox(
-         placeholder="Selecciona un diario",
+         label="Filtrar por diario",
          options=["Todos", "Perú21", "La República"],
          key="filtro_diario_contexto"
     )
