@@ -52,9 +52,9 @@ st.markdown("""
 # 2. CARGA DE BASE DE DATOS DE ARTÍCULOS Y COLUMNISTAS
 # =============================================================================
 def cargar_datos():
-    df = pd.read_excel("df_articulos.xlsx").fillna("")
+    df_articulos = pd.read_excel("df_articulos.xlsx").fillna("")
     # Formatear fecha para eliminar "00:00:00"
-    df.loc[:, "fecha"] = pd.to_datetime(df.loc[:, "fecha"], errors="coerce").dt.strftime("%Y-%m-%d").fillna("")
+    df_articulos.loc[:, "fecha"] = pd.to_datetime(df_articulos.loc[:, "fecha"], errors="coerce").dt.strftime("%Y-%m-%d").fillna("")
     return df
 
 df_articulos = cargar_datos()
