@@ -213,7 +213,7 @@ lista_autores = sorted(df_filtrado["autor"].dropna().unique().tolist())
 
 with col_f2:
     autores_sel = st.multiselect(
-            label="Selecciona un columnista:"
+            label="Selecciona un columnista:",
             options=lista_autores,
             placeholder="Selecciona o escribe el nombre de uno o más columnistas:",
             key="filtro_autor_contexto"
