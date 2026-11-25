@@ -191,67 +191,97 @@ with tab_contexto:
     
 st.divider()
 
-# --- EXPLORADOR INTERACTIVO DE LA BASE DE DATOS (USANDO .loc) ---
-st.subheader("🔎 Buscador de columnistas y sus artículos")
+# =========================================================================
+# BLOQUE A: EXPLORACIÓN VISUAL POR DIARIO (GALERÍA DE COLUMNISTAS)
+# =========================================================================
+st.subheader("📰 Galería de Columnistas por Diario")
+diario_galeria = st.selectbox(
+    "Selecciona un diario para ver a sus columnistas:",
+    ["Perú21", "La República"],
+    key="select_diario_galeria"
+)
 
-# Extraer lista única de autores individuales (separando coautorías con "|")
-col_f1, col_f2 = st.columns([1, 2.5])
-with col_f1:
-    diario_sel = st.selectbox(
-         label="Filtrar por diario:",
-         options=["Todos", "Perú21", "La República"],
-         key="filtro_diario_contexto"
-    )
-# Filtramos el DataFrame según el diario elegido
-# (Asegúrate de que 'Diario' y 'Autor' coincidan con los nombres exactos de tus columnas en base_articulos.xlsx)
-if diario_sel == "Todos":
-    df_filtrado = df_articulos.copy()
-else:
-    df_filtrado = df_articulos[df_articulos["diario"].str.strip().str.lower() == diario_sel.lower()]
-
-lista_autores = sorted(df_filtrado["autor"].dropna().unique().tolist())
-
-with col_f2:
-    autores_sel = st.multiselect(
-            label="Selecciona un columnista:",
-            options=lista_autores,
-            placeholder="Selecciona o escribe el nombre de uno o más columnistas:",
-            key="filtro_autor_contexto"
-    )
-
-# --- RESULTADOS: FOTO DESDE EL EXCEL + ARTÍCULOS ---
-if not autores_sel:
-    st.caption("Selecciona o escribe el nombre de un columnista.")
-else:
-    for autor in autores_sel:
-        articulos_autor = df_filtrado[df_filtrado["autor"] == autor]
+if diario_galeria != "-- Selecciona un diario --":
+    df_diario = df_articulos.loc[df_articulos.loc[:, "diario"] == diario_galeria, :].copy()
+        
+    # Construir diccionario único de {autor_individual: foto_individual}
+    autores_diario = {}
+    for _, row in df_diario.iterrows():
+        lista_autores = [a.strip() for a in str(row.loc["autor"]).split("|")]
+        lista_fotos = [f.strip() for f in str(row.get("foto_url", "")).split("|")]
             
+        for i, nombre_autor in enumerate(lista_autores):
+            if nombre_autor != "" and nombre_autor not in autores_diario:
+                foto = lista_fotos[i] if i < len(lista_fotos) and lista_fotos[i] != "" else "https://via.placeholder.com/100?text=Autor"
+                autores_diario[nombre_autor] = foto
+
+    st.markdown(f"**Columnistas de {diario_galeria} ({len(autores_diario)}):**")
+      
+    # Mostrar fotos en cuadrícula de 5 columnas
+    cols_gal = st.columns(5)
+    for idx, (nombre, foto) in enumerate(sorted(autores_diario.items())):
+        with cols_gal[idx % 5]:
+            with st.container(border=True):
+                st.image(foto, use_container_width=True)
+                st.markdown(f"**{nombre}**")
+else:
+   st.caption("Elige un diario en el menú superior para desplegar las fotografías de todos sus columnistas.")
+
+st.divider()
+
+# =========================================================================
+# BLOQUE B: BUSCADOR POR AUTOR (FOTO DEL AUTOR + SUS ARTÍCULOS)
+# =========================================================================
+st.subheader("🔎 Buscador de artículos por columnista")
+
+# Mapear cada autor individual con su foto en todo el corpus
+mapa_fotos_autores = {}
+for _, row in df_articulos.iterrows():
+    lista_autores = [a.strip() for a in str(row.loc["autor"]).split("|")]
+    lista_fotos = [f.strip() for f in str(row.get("foto_url", "")).split("|")]
+    for i, nombre_autor in enumerate(lista_autores):
+        if nombre_autor != "" and nombre_autor not in mapa_fotos_autores:
+            foto = lista_fotos[i] if i < len(lista_fotos) and lista_fotos[i] != "" else "https://via.placeholder.com/120?text=Autor"
+            mapa_fotos_autores[nombre_autor] = foto
+
+todos_autores = sorted(list(mapa_fotos_autores.keys()))
+
+autor_sel = st.selectbox(
+    "Selecciona o escribe el nombre de un columnista:",
+    ["-- Selecciona un autor --"] + todos_autores,
+    key="select_autor_busqueda"
+)
+
+if autor_sel != "-- Selecciona un autor --":
+    df_autor = df_articulos.loc[
+        df_articulos.loc[:, "autor"].str.contains(autor_sel, case=False, na=False), :
+    ].copy()
+
+    # Dividir en dos columnas: Izquierda (Foto del autor) | Derecha (Sus artículos)
+    col_perfil, col_lista_art = st.columns([1, 3.5])
+
+    with col_perfil:
         with st.container(border=True):
-            col_foto, col_arts = st.columns([1, 4])
-                
-            with col_foto:
-                # Cambia "Imagen" por el nombre exacto de tu columna de URLs de fotos en base_articulos.xlsx
-                urls_validas = articulos_autor["foto_url"].dropna()
-                url_foto = urls_validas.iloc[0] if not urls_validas.empty else ""
-                    
-                if isinstance(url_foto, str) and url_foto.startswith("http"):
-                    st.image(url_foto, use_container_width=True, caption=autor)
-                else:
-                    st.markdown(f"**👤 {autor}**")
-                
-            with col_arts:
-                st.markdown(f"#### {autor} ({len(articulos_autor)} {'artículo' if len(articulos_autor) == 1 else 'artículos'})")
-                    
-                for _, fila in articulos_autor.iterrows():
-                     fecha = fila.get("Fecha", "Sin fecha")
-                     titulo = fila.get("Titulo", "Sin título")
-                     diario_art = fila.get("Diario", "")
-                     enlace = fila.get("Link", "")
-                        
-                     if pd.notna(enlace) and str(enlace).startswith("http"):
-                         st.markdown(f"* **[{fecha}]** ({diario_art}) — [{titulo}]({enlace})")
-                     else:
-                         st.markdown(f"* **[{fecha}]** ({diario_art}) — {titulo}")
+            st.image(mapa_fotos_autores[autor_sel], use_container_width=True)
+            st.markdown(f"### {autor_sel}")
+            st.caption(f"Total de columnas: {len(df_autor)}")
+
+    with col_lista_art:
+        st.markdown(f"**Artículos publicados por {autor_sel}:**")
+        st.dataframe(
+            df_autor.loc[:, ["fecha", "diario", "título", "url"]],
+            column_config={
+                "fecha": "Fecha",
+                "diario": "Diario",
+                "título": "Título del Artículo",
+                "url": st.column_config.LinkColumn("Enlace", display_text="Leer artículo 🔗")
+            },
+            use_container_width=True,
+            hide_index=True
+        )
+else:
+    st.caption("Selecciona o escribe el nombre de un columnista para ver su fotografía junto con el listado de sus artículos.")
+
 # -----------------------------------------------------------------------------
 # PESTAÑA 2: LAS 4 NUBES DE PALABRAS + FOTOS DE CANDIDATOS + INTERPRETACIONES
 # -----------------------------------------------------------------------------
