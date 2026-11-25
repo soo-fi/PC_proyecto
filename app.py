@@ -194,7 +194,7 @@ st.divider()
 # =========================================================================
 # BLOQUE A: EXPLORACIÓN VISUAL POR DIARIO (GALERÍA DE COLUMNISTAS)
 # =========================================================================
-st.subheader("📰 Galería de Columnistas por Diario")
+st.subheader("📰 Galería de columnistas por diario")
 diario_galeria = st.selectbox(
     "Selecciona un diario para ver a sus columnistas:",
     ["Perú21", "La República"],
@@ -247,12 +247,12 @@ for _, row in df_articulos.iterrows():
 todos_autores = sorted(list(mapa_fotos_autores.keys()))
 
 autor_sel = st.selectbox(
-    "Selecciona o escribe el nombre de un columnista:",
+    "Selecciona el nombre de un columnista:",
     ["-- Selecciona un autor --"] + todos_autores,
     key="select_autor_busqueda"
 )
 
-if autor_sel != "-- Selecciona un autor --":
+if autor_sel != "-- Selecciona un columnista --":
     df_autor = df_articulos.loc[
         df_articulos.loc[:, "autor"].str.contains(autor_sel, case=False, na=False), :
     ].copy()
