@@ -80,7 +80,7 @@ with col_keiko:
         with c_foto_k:
             st.image("assets/foto_keiko.png", use_container_width=True)  # <--- FOTO DE KEIKO
         with c_info_k:
-            st.metric(label="Keiko Fujimori", value="50,135%", delta="Segunda Vuelta")
+            st.metric(label="Keiko Fujimori", value="50,135%", delta="Segunda vuelta")
 
 # --- BLOQUE CENTRAL: RESUMEN DE ARTÍCULOS Y ORACIONES ---
 with col_corpus:
@@ -106,7 +106,7 @@ with col_sanchez:
         with c_foto_s:
             st.image("assets/foto_sanchez.png", use_container_width=True)  # <--- FOTO DE SÁNCHEZ
         with c_info_s:
-            st.metric(label="Roberto Sánchez", value="49,641%", delta="Segunda Vuelta")
+            st.metric(label="Roberto Sánchez", value="49,641%", delta="Segunda vuelta")
 
 st.divider()
 # =============================================================================
@@ -158,7 +158,7 @@ with tab_contexto:
             * **Historia Política:** [Completar trayectoria y postura frente al escenario político peruano].
             """)
             
-            st.link_button("🌐 Visitar sitio web de Perú21", "https://peru21.pe/", use_container_width=True)
+            st.link_button("🌐 Visitar sitio web de Perú21", "https://peru21.pe/quienes-somos/", use_container_width=True)
 
     # --- TARJETA DIARIO 2: LA REPÚBLICA ---
     with col_d2:
