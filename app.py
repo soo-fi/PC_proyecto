@@ -189,55 +189,68 @@ with tab_contexto:
             st.link_button("🌐 Visitar sitio web de La República", "https://larepublica.pe/politicas-y-estandares#estructura-empresarial-y-fundacion", use_container_width=True)
 
     
-    st.divider()
+st.divider()
 
     # --- EXPLORADOR INTERACTIVO DE LA BASE DE DATOS (USANDO .loc) ---
 st.subheader("🔎 Buscador de columnistas y sus artículos")
 
     # Extraer lista única de autores individuales (separando coautorías con "|")
-todos_autores = sorted(list({
-    autor.strip()
-    for fila in df_articulos.loc[:, "autor"]
-    for autor in str(fila).split("|")
-    if autor.strip() != ""
-}))
+col_f1, col_f2 = st.columns([1, 2.5])
+with col_f1:
+    diario_sel = st.selectbox(
+    "Filtrar por diario:",
+     options=["Todos", "Perú21", "La República"],
+     key="filtro_diario_contexto"
+        )
 
-col_bus1, col_bus2 = st.columns([1, 2])
-with col_bus1:
-    diario_sel = st.selectbox("Filtrar por diario:", ["Todos", "Perú21", "La República"])
-with col_bus2:
-    autor_sel = st.selectbox(
-        "Selecciona o escribe el nombre de un columnista:",
-        ["-- Selecciona un autor --"] + todos_autores
-    )
-
-if autor_sel != "-- Selecciona un autor --":
-    df_autor = df_articulos.loc[
-        df_articulos.loc[:, "autor"].str.contains(autor_sel, case=False, na=False), :
-    ].copy()
-
-    if diario_sel != "Todos":
-        df_autor = df_autor.loc[df_autor.loc[:, "diario"] == diario_sel, :]
-
-    if not df_autor.empty:
-        st.markdown(f"**Artículos encontrados de {autor_sel} ({len(df_autor)}):**")
-            
-        st.dataframe(
-            df_autor.loc[:, ["fecha", "diario", "título", "url"]],
-            column_config={
-                "fecha": "Fecha de Publicación",
-                "diario": "Diario",
-                "título": "Título del Artículo",
-                "url": st.column_config.LinkColumn("Enlace", display_text="Leer artículo 🔗")
-            },
-            use_container_width=True,
-            hide_index=True
-            )
-    else:
-            st.info(f"{autor_sel} no tiene artículos registrados en {diario_sel}.")
+if diario_sel == "Todos":
+    df_filtrado = df.copy()
 else:
-    st.caption("Selecciona o escribe el nombre de un columnista para visualizar los títulos y fechas de sus artículos analizados.")
+    df_filtrado = df[df["Diario"].str.strip().str.lower() == diario_sel.lower()]
 
+lista_autores = sorted(df_filtrado["Autor"].dropna().unique().tolist())
+
+with col_f2:
+    autores_sel = st.multiselect(
+           "Selecciona o escribe el nombre de uno o más columnistas:",
+            options=lista_autores,
+            placeholder="Escribe para buscar (ej. Cecilia Valenzuela, Mirko Lauer...)",
+            key="filtro_autor_contexto"
+        )
+
+    # --- RESULTADOS: FOTO DESDE EL EXCEL + ARTÍCULOS ---
+if not autores_sel:
+    st.caption("Selecciona o escribe el nombre de un columnista para visualizar su fotografía, los títulos y fechas de sus artículos analizados.")
+else:
+    for autor in autores_sel:
+        articulos_autor = df_filtrado[df_filtrado["Autor"] == autor]
+            
+        with st.container(border=True):
+            col_foto, col_arts = st.columns([1, 4])
+                
+            with col_foto:
+                # Cambia "Imagen" por el nombre exacto de tu columna de URLs de fotos en base_articulos.xlsx
+                urls_validas = articulos_autor["Imagen"].dropna()
+                url_foto = urls_validas.iloc[0] if not urls_validas.empty else ""
+                    
+                if isinstance(url_foto, str) and url_foto.startswith("http"):
+                    st.image(url_foto, use_container_width=True, caption=autor)
+                else:
+                    st.markdown(f"**👤 {autor}**")
+                
+             with col_arts:
+                 st.markdown(f"#### {autor} ({len(articulos_autor)} {'artículo' if len(articulos_autor) == 1 else 'artículos'})")
+                    
+                 for _, fila in articulos_autor.iterrows():
+                     fecha = fila.get("Fecha", "Sin fecha")
+                     titulo = fila.get("Titulo", "Sin título")
+                     diario_art = fila.get("Diario", "")
+                     enlace = fila.get("Link", "")
+                        
+                     if pd.notna(enlace) and str(enlace).startswith("http"):
+                         st.markdown(f"* **[{fecha}]** ({diario_art}) — [{titulo}]({enlace})")
+                     else:
+                         st.markdown(f"* **[{fecha}]** ({diario_art}) — {titulo}")
 # -----------------------------------------------------------------------------
 # PESTAÑA 2: LAS 4 NUBES DE PALABRAS + FOTOS DE CANDIDATOS + INTERPRETACIONES
 # -----------------------------------------------------------------------------
