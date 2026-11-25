@@ -15,10 +15,10 @@ import pandas as pd
 # 1. CONFIGURACIÓN INICIAL DE LA PÁGINA
 # =============================================================================
 st.set_page_config(
-    page_title="Análisis Discursivo: Segunda Vuelta Perú 2026",
+    page_title="Análisis Discursivo: Segunda Vuelta Perú 2026 </h1",
     page_icon="🇵🇪",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="collapsed",
 )
 
 # Estilos CSS personalizados
