@@ -182,8 +182,8 @@ with tab_contexto:
                 st.write("Grupo La República Publicaciones - Propiedad de la familia Mohme Seminario")
             
             st.markdown("""
-            * **Línea Editorial:** [Completar orientación editorial, ej. centroizquierda, progresista].
-            * **Historia Política:** [Completar trayectoria y postura frente al escenario político peruano].
+            * **Línea Editorial:** La República mantiene una linea editorial progresista, enfocado en la defensa de los derechos humanos, la democracia y la justicia social .
+            * **Historia Política:** Fundado en la década de los 80, La República ha mantenido desde sus inicios una postura de oposición frente a los partidos conervadores. Actuó como opositor al gobierno de fujimori (padre) y hasta el día de hoy como crítico del fujimorismo.
             """)
             
             st.link_button("🌐 Visitar sitio web de La República", "https://larepublica.pe/politicas-y-estandares#estructura-empresarial-y-fundacion", use_container_width=True)
