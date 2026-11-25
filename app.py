@@ -51,7 +51,6 @@ st.markdown("""
 # =============================================================================
 # 2. CARGA DE BASE DE DATOS DE ARTÍCULOS Y COLUMNISTAS
 # =============================================================================
-@st.cache_data
 def cargar_datos():
     df = pd.read_excel("df_articulos.xlsx").fillna("")
     # Formatear fecha para eliminar "00:00:00"
