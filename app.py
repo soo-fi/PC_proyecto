@@ -113,24 +113,24 @@ st.divider()
 # 4. NAVEGACIÓN PRINCIPAL POR PESTAÑAS
 # =============================================================================
 tab_contexto, tab_nubes, tab_pastel, tab_mapa, tab_metodologia = st.tabs([
-    "📰 1. Contexto y Corpus",
-    "☁️ 2. Narrativa Mediática (Nubes)",
-    "📊 3. Polaridad y Emociones (Pastel)",
-    "🗺️ 4. Mapa Electoral",
-    "⚙️ 5. Metodología y Conclusiones"
+    "📰 1. Contexto y corpus",
+    "☁️ 2. Narrativa mediática",
+    "📊 3. Análisis de sentimientos",
+    "🗺️ 4. Mapa electoral",
+    "⚙️ 5. Metodología y conclusiones"
 ])
 
 # -----------------------------------------------------------------------------
 # PESTAÑA 1: CONTEXTO, PERFIL DE DIARIOS (LOGOS + DUEÑOS) Y BASE DE DATOS
 # -----------------------------------------------------------------------------
 with tab_contexto:
-    st.header("Presentación de la Investigación")
+    st.header("Presentación de la investigación")
     st.write("""
     Esta investigación analiza cómo dos de los principales diarios de circulación nacional en el Perú construyeron 
     la narrativa pública en torno a **Keiko Fujimori** y **Roberto Sánchez** durante la segunda vuelta presidencial de 2026.
     """)
 
-    st.subheader("Perfil de los Diarios Analizados")
+    st.subheader("Perfil de los diarios analizados")
     col_d1, col_d2 = st.columns(2)
 
     with col_d1:
@@ -192,7 +192,7 @@ with tab_contexto:
     st.divider()
 
     # --- EXPLORADOR INTERACTIVO DE LA BASE DE DATOS (USANDO .loc) ---
-st.subheader("🔎 Buscador de Columnistas y sus Artículos")
+st.subheader("🔎 Buscador de columnistas y sus artículos")
 
     # Extraer lista única de autores individuales (separando coautorías con "|")
 todos_autores = sorted(list({
@@ -305,7 +305,7 @@ with tab_nubes:
 # PESTAÑA 3: LOS 4 GRÁFICOS DE PASTEL + INTERPRETACIONES
 # -----------------------------------------------------------------------------
 with tab_pastel:
-    st.header("Análisis de Sentimientos: Tono editorial hacia cada candidato")
+    st.header("Tono editorial hacia cada candidato")
 
     st.subheader("📰 Diario Perú21")
     f1_col1, f1_col2 = st.columns(2)
@@ -353,7 +353,7 @@ with tab_pastel:
 # PESTAÑA 4: MAPA DE DISTRIBUCIÓN DE VOTOS + INTERPRETACIÓN
 # -----------------------------------------------------------------------------
 with tab_mapa:
-    st.header("Distribución de Votos en la Segunda Vuelta — Perú 2026")
+    st.header("Distribución de votos en la segunda vuelta — Perú 2026")
     col_mapa, col_texto_mapa = st.columns([3, 2])
 
     with col_mapa:
@@ -365,7 +365,7 @@ with tab_mapa:
         st.components.v1.html(codigo_html_mapa, height=550, scrolling=False)
 
     with col_texto_mapa:
-        st.subheader("Interpretación Territorial y Mediática")
+        st.subheader("Interpretación territorial y mediática")
         st.markdown("""
             <div class="interpretacion-box">
             <b>Análisis de resultados:</b><br><br>
@@ -377,10 +377,10 @@ with tab_mapa:
 # PESTAÑA 5: METODOLOGÍA Y CONCLUSIONES
 # -----------------------------------------------------------------------------
 with tab_metodologia:
-    st.header("Metodología de Trabajo y Síntesis")
+    st.header("Metodología de trabajo y síntesis")
     col_met1, col_met2 = st.columns(2)
     with col_met1:
-        st.subheader("Flujo de Procesamiento (Python)")
+        st.subheader("Flujo de procesamiento (Python)")
         st.markdown("""
         * **Corpus:** Artículos de opinión extraídos de *Perú21* y *La República*.
         * **Depuración y Segmentación:** Limpieza de texto, eliminación de *stopwords* y extracción de oraciones por candidato.
@@ -388,7 +388,7 @@ with tab_metodologia:
         * **Visualización:** Nubes de palabras, gráficos de proporción y cartografía electoral.
         """)
     with col_met2:
-        st.subheader("Conclusiones Principales")
+        st.subheader("Conclusiones principales")
         st.markdown("""
             <div class="interpretacion-box">
             [Redacta aquí las conclusiones generales de tu estudio].
