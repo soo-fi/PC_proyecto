@@ -154,8 +154,8 @@ with tab_contexto:
                 st.write("Media Chirimoya S.A.C.")
             
             st.markdown("""
-            * **Línea Editorial:** En enero de 2023, Empresa Editora El Comercio acordó vender la marca Perú21 a Media Chirimoya S.A.C., haciéndose efectivo en febrero de ese año.
-            * **Historia Política:** [Completar trayectoria y postura frente al escenario político peruano].
+            * **Línea Editorial:** Perú21 se identifica a sí misma como un diario comprometida con la defensa de la democracia, del libre mercado, la libertad y los derechos civiles. Luego de pasar a manos de Cecilia Valenzuela, señalan que su informacion va dirigida especialmente a la "élites" entendidas, por ejemplo, los sectores de liderazgo.
+            * **Historia Política:** Fundado en el 2002 por Bernardo Boca Rey, el diario fue parte del grupo El Comercio hasta su venta en el año 2023. Dió seguimiento a la transición democrática en el año 2000 y fue siguiendo los gobiernos de los presidentes desde aquel año.
             """)
             
             st.link_button("🌐 Visitar sitio web de Perú21", "https://peru21.pe/quienes-somos/", use_container_width=True)
@@ -304,7 +304,8 @@ with tab_nubes:
             st.image("assets/nube_keiko_peru21.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 1
             st.markdown("""
                 <div class="interpretacion-box">
-                <b>Interpretación:</b> [Escribe aquí tu análisis sobre las palabras clave de Perú21 sobre Keiko].
+                <b>Interpretación:</b> El gráfico muestra las palabras que más se repiten en los corpus de texto del diario Perú21. La palabra que más se repite es "Keiko", seguido de Sánchez, quien era su contriacnte en la segunda vuelta presidencial 2026. Seguido a esto, encontramos "Castillo" que lo usan para recordar las pasadas elecciones presidenciales del 2022 en donde Keiko Fujimori y Pedro Castillo se enfrentaron. la palabra "reinvidica" podemos relacionarlo con que Keiko queire imitar un gobierno al de su padre, Alberto Fujimori, ex-presidente del Perú, acusado de violeaciones de derechosn humanos y corrupción. Por último, debido a su corte liberal económico, Perú21 pedía votar por la lideresa de Fuerza Popular, quien era un signo de estabilidad económica. 
+                "
                 </div>
             """, unsafe_allow_html=True)
 
