@@ -229,55 +229,55 @@ st.divider()
     # =========================================================================
     # BLOQUE B: BUSCADOR POR AUTOR (FOTO DEL AUTOR + SUS ARTÍCULOS)
     # =========================================================================
-    st.subheader("🔎 Buscador de artículos por columnista")
+st.subheader("🔎 Buscador de artículos por columnista")
     
-    # Mapear cada autor individual con su foto en todo el corpus
-    mapa_fotos_autores = {}
-    for _, row in df_articulos.iterrows():
-        lista_autores = [a.strip() for a in str(row.loc["autor"]).split("|")]
-        lista_fotos = [f.strip() for f in str(row.get("foto_url", "")).split("|")]
-        for i, nombre_autor in enumerate(lista_autores):
-            if nombre_autor != "" and nombre_autor not in mapa_fotos_autores:
-                foto = lista_fotos[i] if i < len(lista_fotos) and lista_fotos[i] != "" else "https://via.placeholder.com/120?text=Autor"
-                mapa_fotos_autores[nombre_autor] = foto
+# Mapear cada autor individual con su foto en todo el corpus
+mapa_fotos_autores = {}
+for _, row in df_articulos.iterrows():
+    lista_autores = [a.strip() for a in str(row.loc["autor"]).split("|")]
+    lista_fotos = [f.strip() for f in str(row.get("foto_url", "")).split("|")]
+    for i, nombre_autor in enumerate(lista_autores):
+        if nombre_autor != "" and nombre_autor not in mapa_fotos_autores:
+            foto = lista_fotos[i] if i < len(lista_fotos) and lista_fotos[i] != "" else "https://via.placeholder.com/120?text=Autor"
+            mapa_fotos_autores[nombre_autor] = foto
     
-    todos_autores = sorted(list(mapa_fotos_autores.keys()))
+todos_autores = sorted(list(mapa_fotos_autores.keys()))
     
-    autor_sel = st.selectbox(
-        "Selecciona o escribe el nombre de un columnista:",
-        ["-- Selecciona un columnista --"] + todos_autores,
-        key="select_autor_busqueda"
-    )
+autor_sel = st.selectbox(
+    "Selecciona o escribe el nombre de un columnista:",
+    ["-- Selecciona un columnista --"] + todos_autores,
+    key="select_autor_busqueda"
+)
     
-    if autor_sel != "-- Selecciona un columnista --":
-        df_autor = df_articulos.loc[
-            df_articulos.loc[:, "autor"].str.contains(autor_sel, case=False, na=False), :
-        ].copy()
+if autor_sel != "-- Selecciona un columnista --":
+   df_autor = df_articulos.loc[
+       df_articulos.loc[:, "autor"].str.contains(autor_sel, case=False, na=False), :
+   ].copy()
     
-        # Dividir en dos columnas: Izquierda (Foto del autor) | Derecha (Sus artículos)
-        col_perfil, col_lista_art = st.columns([1, 3.5])
+   # Dividir en dos columnas: Izquierda (Foto del autor) | Derecha (Sus artículos)
+   col_perfil, col_lista_art = st.columns([1, 3.5])
     
-        with col_perfil:
-            with st.container(border=True):
-                st.image(mapa_fotos_autores[autor_sel], use_container_width=True)
-                st.markdown(f"### {autor_sel}")
-                st.caption(f"Total de columnas: {len(df_autor)}")
+   with col_perfil:
+       with st.container(border=True):
+            st.image(mapa_fotos_autores[autor_sel], use_container_width=True)
+            st.markdown(f"### {autor_sel}")
+            st.caption(f"Total de columnas: {len(df_autor)}")
     
-        with col_lista_art:
-            st.markdown(f"**Artículos publicados por {autor_sel}:**")
-            st.dataframe(
-                df_autor.loc[:, ["fecha", "diario", "título", "url"]],
-                column_config={
-                    "fecha": "Fecha",
-                    "diario": "Diario",
-                    "título": "Título del Artículo",
-                    "url": st.column_config.LinkColumn("Enlace", display_text="Leer artículo 🔗")
-                },
-                use_container_width=True,
-                hide_index=True
-            )
-    else:
-        st.caption("Selecciona o escribe el nombre de un columnista para ver su fotografía junto con el listado de sus artículos.")
+   with col_lista_art:
+       st.markdown(f"**Artículos publicados por {autor_sel}:**")
+       st.dataframe(
+           df_autor.loc[:, ["fecha", "diario", "título", "url"]],
+            column_config={
+               "fecha": "Fecha",
+               "diario": "Diario",
+               "título": "Título del Artículo",
+               "url": st.column_config.LinkColumn("Enlace", display_text="Leer artículo 🔗")
+           },
+           use_container_width=True,
+           hide_index=True
+        )
+else:
+    st.caption("Selecciona o escribe el nombre de un columnista para ver su fotografía junto con el listado de sus artículos.")
 
 # -----------------------------------------------------------------------------
 # PESTAÑA 2: LAS 4 NUBES DE PALABRAS + FOTOS DE CANDIDATOS + INTERPRETACIONES
