@@ -314,9 +314,9 @@ with subtab_general:
                 m2.metric("Menciones Keiko", "36 oraciones", "28.6%", delta_color="off")
 
                 st.info(
-                    "**Foco editorial:** En las columnas de opinión de Perú21, la agenda está 
-                    "marcada por el escrutinio constante hacia Sánchez, mientras que la figura de Fujimori "
-                    "recibe menor densidad de menciones directa"
+                "**Foco editorial:** En las columnas de opinión de Perú21, la agenda está 
+                "marcada por el escrutinio constante hacia Sánchez, mientras que la figura de Fujimori "
+                "recibe menor densidad de menciones directa"
                 )
 
         # COLUMNA DERECHA: LA REPÚBLICA
@@ -324,9 +324,9 @@ with subtab_general:
             with st.container(border=True):
                 st.markdown("#### 📰 La República")
                 st.image(
-                    "assets/wc_general_larepublica.png",
-                    caption="Nube léxica general — Columnas de La República (2026)",
-                    use_container_width=True
+                "assets/wc_general_larepublica.png",
+                caption="Nube léxica general — Columnas de La República (2026)",
+                use_container_width=True
                 )
 
                 # Métricas de proporción (reemplaza 'XX' con tus conteos de La República)
@@ -339,9 +339,6 @@ with subtab_general:
                     "evidenciando qué candidatura concentra la atención crítica y la fijación de agenda "
                     "en este diario."
                 )
-    st.info(
-        "**Lectura discursiva:** s."
-    )
 
 with tab_nubes:
     st.header("Palabras más asociadas a cada candidato por diario")
