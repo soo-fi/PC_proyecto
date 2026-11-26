@@ -314,7 +314,7 @@ with subtab_general:
                 m2.metric("Menciones Keiko", "36 oraciones", "28.6%", delta_color="off")
 
                 st.info(
-                "**Foco editorial:** En las columnas de opinión de Perú21, la agenda está 
+                "**Foco editorial:** En las columnas de opinión de Perú21, la agenda está"
                 "marcada por el escrutinio constante hacia Sánchez, mientras que la figura de Fujimori "
                 "recibe menor densidad de menciones directa"
                 )
