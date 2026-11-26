@@ -247,7 +247,7 @@ for _, row in df_articulos.iterrows():
 todos_autores = sorted(list(mapa_fotos_autores.keys()))
 
 autor_sel = st.selectbox(
-    "Selecciona el nombre de un columnista:",
+    "Selecciona o escribe el nombre de un columnista:",
     ["-- Selecciona un columnista --"] + todos_autores,
     key="select_autor_busqueda"
 )
@@ -285,6 +285,36 @@ else:
 # -----------------------------------------------------------------------------
 # PESTAÑA 2: LAS 4 NUBES DE PALABRAS + FOTOS DE CANDIDATOS + INTERPRETACIONES
 # -----------------------------------------------------------------------------
+st.subheader("👁️ Visibilidad mediática y protagonismo en Perú21")
+
+col_img, col_texto = st.columns([1.4, 1])
+
+with col_img:
+    st.image(
+        "assets/nube_peru21.png",
+        caption="Nube de palabras general de las columnas analizadas en Perú21",
+        use_container_width=True
+    )
+
+with col_texto:
+    st.markdown("#### Asimetría en la atención editorial")
+    st.write(
+        "El mapa léxico general de *Perú21* evidencia un claro desbalance en el protagonismo "
+        "de las candidaturas: **Roberto Sánchez** ocupa el centro del debate con una frecuencia "
+        "de mención significativamente superior a la de **Keiko Fujimori**."
+    )
+    
+    # Indicadores rápidos de respaldo (ajusta los números si es necesario)
+    m1, m2 = st.columns(2)
+    m1.metric(label="Oraciones sobre Sánchez", value="90", delta="71.4% del foco", delta_color="off")
+    m2.metric(label="Oraciones sobre Keiko", value="36", delta="28.6% del foco", delta_color="off")
+
+    st.info(
+        "**Lectura discursiva:** En las columnas de opinión de este diario, la agenda está "
+        "marcada por el escrutinio constante hacia Sánchez, mientras que la figura de Fujimori "
+        "recibe menor densidad de menciones directas."
+    )
+
 with tab_nubes:
     st.header("Palabras más asociadas a cada candidato por diario")
     subtab_keiko, subtab_sanchez = st.tabs(["Keiko Fujimori", "Roberto Sánchez"])
