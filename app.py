@@ -191,7 +191,7 @@ st.divider()
 # =========================================================================
 # BLOQUE A: EXPLORACIÓN VISUAL POR DIARIO (GALERÍA DE COLUMNISTAS)
 # =========================================================================
-    st.subheader("📰 Galería de columnistas por diario")
+st.subheader("📰 Galería de columnistas por diario")
     diario_galeria = st.selectbox(
         "Selecciona un diario para ver a sus columnistas:",
         ["Perú21", "La República"],
