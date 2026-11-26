@@ -229,6 +229,7 @@ st.divider()
         # =========================================================================
         # BLOQUE B: BUSCADOR POR AUTOR (FOTO DEL AUTOR + SUS ARTÍCULOS)
         # =========================================================================
+with tab_contexto:
     
     st.subheader("🔎 Buscador de artículos por columnista")
         
