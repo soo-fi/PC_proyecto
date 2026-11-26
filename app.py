@@ -114,7 +114,7 @@ st.divider()
 # =============================================================================
 tab_contexto, tab_nubes, tab_pastel, tab_mapa, tab_metodologia = st.tabs([
     "📰 1. Contexto y corpus",
-    "☁️ 2. Narrativa mediática",
+    "☁️ 2. Análisis léxico",
     "📊 3. Análisis de sentimientos",
     "🗺️ 4. Mapa electoral",
     "⚙️ 5. Metodología y conclusiones"
