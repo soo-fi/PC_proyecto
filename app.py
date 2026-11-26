@@ -289,7 +289,7 @@ subtab_general, subtab_keiko, subtab_sanchez = st.tabs([
     ])
 
     # --- SUB-PESTAÑA 1: PANORAMA GENERAL DE AMBOS DIARIOS ---
-    with subtab_general:
+with subtab_general:
         st.markdown("### 👁️ Visibilidad mediática y protagonismo por diario")
         st.caption(
             "Comparación del universo léxico global en las columnas de opinión analizadas. "
