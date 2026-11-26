@@ -415,7 +415,7 @@ with tab_mapa:
             <b>Análisis de resultados:</b><br><br>
             El mapa muestra las regiones en donde ganó Keiko Fujimori y Roberto Sánchez. La lideresa de Fuerza Popular logró una victoria en 9 de 25 regiones en el Perú, mientras que el lider de Juntos por el Perú logró una victoria en 16 regiones. Podemos observar que la tendencia se divide así: Keiko Fujimori triunfó sobre todo en regiones del Norte, en Lima e Ica, Roberto Sánchez obtuvo el apoyo de regiones del Centro y Sur del Perú especialmente. Si solo se contabilizará los votos del Perú, el ganador habría sido Roberto Sánchez, sin embargo, Keiko Fujimori salió ganadora de las elecciones presidenciales 2026 gracias a los votos de los peruanos en el extranjero.
             </div>
-        """, text-align= justify, unsafe_allow_html=True)
+        """, text-align == justify, unsafe_allow_html=True)
 
 # -----------------------------------------------------------------------------
 # PESTAÑA 5: METODOLOGÍA Y CONCLUSIONES
