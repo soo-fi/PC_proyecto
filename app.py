@@ -313,7 +313,7 @@ with tab_nubes:
             st.image("assets/nube_keiko_larepublica.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 2
             st.markdown("""
                 <div class="interpretacion-box">
-                <b>Interpretación:</b> [Escribe aquí tu análisis sobre las palabras clave de La República sobre Keiko].
+                <b>Interpretación:</b> El gráfico podemos observar las palabras que mas se repiten las columnas de opinión analizadas. Vemos como se repite el nombre "Keiko", acompañado de "Sánchez" quien es fue su contricante en la segunda vuelta de las elecciones presidenciales. Otra palabra repetida es "padre", esta palabra se relaciona con el hecho de que Keiko Fujimori es la hija del ex-presidente Alberto Fujimori, cuestionado por violaciones a derechos humanos y corrupción. La palabra "congreso" se puede relacionar con los cuestionamientos hacia las bancadas del Congreso de Fuerza Popular desde el año 2016, acusadas de obtruccionismo hacia los gobiernos de turno. 
                 </div>
             """, unsafe_allow_html=True)
 
@@ -415,7 +415,7 @@ with tab_mapa:
             <b>Análisis de resultados:</b><br><br>
             El mapa muestra las regiones en donde ganó Keiko Fujimori y Roberto Sánchez. La lideresa de Fuerza Popular logró una victoria en 9 de 25 regiones en el Perú, mientras que el lider de Juntos por el Perú logró una victoria en 16 regiones. Podemos observar que la tendencia se divide así: Keiko Fujimori triunfó sobre todo en regiones del Norte, en Lima e Ica, Roberto Sánchez obtuvo el apoyo de regiones del Centro y Sur del Perú especialmente. Si solo se contabilizará los votos del Perú, el ganador habría sido Roberto Sánchez, sin embargo, Keiko Fujimori salió ganadora de las elecciones presidenciales 2026 gracias a los votos de los peruanos en el extranjero.
             </div>
-        """, text-align == justify, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
 
 # -----------------------------------------------------------------------------
 # PESTAÑA 5: METODOLOGÍA Y CONCLUSIONES
