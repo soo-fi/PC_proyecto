@@ -191,162 +191,170 @@ st.divider()
 # =========================================================================
 # BLOQUE A: EXPLORACIÓN VISUAL POR DIARIO (GALERÍA DE COLUMNISTAS)
 # =========================================================================
-    st.subheader("📰 Galería de columnistas por diario")
-    diario_galeria = st.selectbox(
-        "Selecciona un diario para ver a sus columnistas:",
-        ["Perú21", "La República"],
-        key="select_diario_galeria"
-        )
-        
-    if diario_galeria != "-- Selecciona un diario --":
-        df_diario = df_articulos.loc[df_articulos.loc[:, "diario"] == diario_galeria, :].copy()
-                
-        # Construir diccionario único de {autor_individual: foto_individual}
-        autores_diario = {}
-        for _, row in df_diario.iterrows():
-            lista_autores = [a.strip() for a in str(row.loc["autor"]).split("|")]
-            lista_fotos = [f.strip() for f in str(row.get("foto_url", "")).split("|")]
-                    
-            for i, nombre_autor in enumerate(lista_autores):
-                if nombre_autor != "" and nombre_autor not in autores_diario:
-                    foto = lista_fotos[i] if i < len(lista_fotos) and lista_fotos[i] != "" else "https://via.placeholder.com/100?text=Autor"
-                    autores_diario[nombre_autor] = foto
-        
-        st.markdown(f"**Columnistas de {diario_galeria} ({len(autores_diario)}):**")
-              
-        # Mostrar fotos en cuadrícula de 5 columnas
-        cols_gal = st.columns(5)
-        for idx, (nombre, foto) in enumerate(sorted(autores_diario.items())):
-            with cols_gal[idx % 5]:
-                with st.container(border=True):
-                    st.image(foto, use_container_width=True)
-                    st.markdown(f"**{nombre}**")
-    else:
-       st.caption("Elige un diario en el menú superior para desplegar las fotografías de todos sus columnistas.")
-        
-    st.divider()
-        
-        # =========================================================================
-        # BLOQUE B: BUSCADOR POR AUTOR (FOTO DEL AUTOR + SUS ARTÍCULOS)
-        # =========================================================================
-with tab_contexto:
-    
-    st.subheader("🔎 Buscador de artículos por columnista")
-        
-    # Mapear cada autor individual con su foto en todo el corpus
-    mapa_fotos_autores = {}
-    for _, row in df_articulos.iterrows():
-        lista_autores = [a.strip() for a in str(row.loc["autor"]).split("|")]
-        lista_fotos = [f.strip() for f in str(row.get("foto_url", "")).split("|")]
-        for i, nombre_autor in enumerate(lista_autores):
-            if nombre_autor != "" and nombre_autor not in mapa_fotos_autores:
-                foto = lista_fotos[i] if i < len(lista_fotos) and lista_fotos[i] != "" else "https://via.placeholder.com/120?text=Autor"
-                mapa_fotos_autores[nombre_autor] = foto
-        
-    todos_autores = sorted(list(mapa_fotos_autores.keys()))
-        
-    autor_sel = st.selectbox(
-        "Selecciona o escribe el nombre de un columnista:",
-        ["-- Selecciona un columnista --"] + todos_autores,
-        key="select_autor_busqueda"
+st.subheader("📰 Galería de columnistas por diario")
+diario_galeria = st.selectbox(
+    "Selecciona un diario para ver a sus columnistas:",
+    ["Perú21", "La República"],
+    key="select_diario_galeria"
     )
         
-    if autor_sel != "-- Selecciona un columnista --":
-       df_autor = df_articulos.loc[
-           df_articulos.loc[:, "autor"].str.contains(autor_sel, case=False, na=False), :
-       ].copy()
+if diario_galeria != "-- Selecciona un diario --":
+    df_diario = df_articulos.loc[df_articulos.loc[:, "diario"] == diario_galeria, :].copy()
+                
+    # Construir diccionario único de {autor_individual: foto_individual}
+    autores_diario = {}
+    for _, row in df_diario.iterrows():
+        lista_autores = [a.strip() for a in str(row.loc["autor"]).split("|")]
+        lista_fotos = [f.strip() for f in str(row.get("foto_url", "")).split("|")]
+                    
+        for i, nombre_autor in enumerate(lista_autores):
+            if nombre_autor != "" and nombre_autor not in autores_diario:
+                foto = lista_fotos[i] if i < len(lista_fotos) and lista_fotos[i] != "" else "https://via.placeholder.com/100?text=Autor"
+                autores_diario[nombre_autor] = foto
         
-       # Dividir en dos columnas: Izquierda (Foto del autor) | Derecha (Sus artículos)
-       col_perfil, col_lista_art = st.columns([1, 3.5])
-        
-       with col_perfil:
+    st.markdown(f"**Columnistas de {diario_galeria} ({len(autores_diario)}):**")
+              
+    # Mostrar fotos en cuadrícula de 5 columnas
+    cols_gal = st.columns(5)
+    for idx, (nombre, foto) in enumerate(sorted(autores_diario.items())):
+       with cols_gal[idx % 5]:
            with st.container(border=True):
-                st.image(mapa_fotos_autores[autor_sel], use_container_width=True)
-                st.markdown(f"### {autor_sel}")
-                st.caption(f"Total de columnas: {len(df_autor)}")
+               st.image(foto, use_container_width=True)
+               st.markdown(f"**{nombre}**")
+else:
+    st.caption("Elige un diario en el menú superior para desplegar las fotografías de todos sus columnistas.")
         
-       with col_lista_art:
-           st.markdown(f"**Artículos publicados por {autor_sel}:**")
-           st.dataframe(
-               df_autor.loc[:, ["fecha", "diario", "título", "url"]],
-                column_config={
-                   "fecha": "Fecha",
-                   "diario": "Diario",
-                   "título": "Título del Artículo",
-                   "url": st.column_config.LinkColumn("Enlace", display_text="Leer artículo 🔗")
-               },
+st.divider()
+        
+# =========================================================================
+# BLOQUE B: BUSCADOR POR AUTOR (FOTO DEL AUTOR + SUS ARTÍCULOS)
+# =========================================================================
+st.subheader("🔎 Buscador de artículos por columnista")
+        
+# Mapear cada autor individual con su foto en todo el corpus
+mapa_fotos_autores = {}
+for _, row in df_articulos.iterrows():
+    lista_autores = [a.strip() for a in str(row.loc["autor"]).split("|")]
+    lista_fotos = [f.strip() for f in str(row.get("foto_url", "")).split("|")]
+    for i, nombre_autor in enumerate(lista_autores):
+        if nombre_autor != "" and nombre_autor not in mapa_fotos_autores:
+            foto = lista_fotos[i] if i < len(lista_fotos) and lista_fotos[i] != "" else "https://via.placeholder.com/120?text=Autor"
+            mapa_fotos_autores[nombre_autor] = foto
+        
+todos_autores = sorted(list(mapa_fotos_autores.keys()))
+        
+autor_sel = st.selectbox(
+    "Selecciona o escribe el nombre de un columnista:",
+    ["-- Selecciona un columnista --"] + todos_autores,
+    key="select_autor_busqueda"
+)
+        
+if autor_sel != "-- Selecciona un columnista --":
+    df_autor = df_articulos.loc[
+       df_articulos.loc[:, "autor"].str.contains(autor_sel, case=False, na=False), :
+    ].copy()
+        
+    # Dividir en dos columnas: Izquierda (Foto del autor) | Derecha (Sus artículos)
+    col_perfil, col_lista_art = st.columns([1, 3.5])
+        
+    with col_perfil:
+        with st.container(border=True):
+            st.image(mapa_fotos_autores[autor_sel], use_container_width=True)
+            st.markdown(f"### {autor_sel}")
+            st.caption(f"Total de columnas: {len(df_autor)}")
+        
+    with col_lista_art:
+        st.markdown(f"**Artículos publicados por {autor_sel}:**")
+        st.dataframe(
+            df_autor.loc[:, ["fecha", "diario", "título", "url"]],
+            column_config={
+                "fecha": "Fecha",
+                "diario": "Diario",
+                "título": "Título del Artículo",
+                "url": st.column_config.LinkColumn("Enlace", display_text="Leer artículo 🔗")
+            },
                use_container_width=True,
                hide_index=True
-            )
-    else:
-        st.caption("Selecciona o escribe el nombre de un columnista para ver su fotografía junto con el listado de sus artículos.")
+        )
+else:
+    st.caption("Selecciona o escribe el nombre de un columnista para ver su fotografía junto con el listado de sus artículos.")
 
 # -----------------------------------------------------------------------------
 # PESTAÑA 2: LAS 4 NUBES DE PALABRAS + FOTOS DE CANDIDATOS + INTERPRETACIONES
 # -----------------------------------------------------------------------------
-subtab_general, subtab_keiko, subtab_sanchez = st.tabs([
-        "🌐 Panorama General por Diario",
-        "🟠 Keiko Fujimori (±5 palabras)",
-        "🔴 Roberto Sánchez (±5 palabras)"
-    ])
+with tab_nubes: 
+    st.subheader("☁️ Análisis léxico y nubes de palabras")
 
-    # --- SUB-PESTAÑA 1: PANORAMA GENERAL DE AMBOS DIARIOS ---
-with subtab_general:
-        st.markdown("### 👁️ Visibilidad mediática y protagonismo por diario")
-        st.caption(
-            "Comparación del universo léxico global en las columnas de opinión analizadas. "
-            "El tamaño de cada término refleja su frecuencia absoluta en el corpus de cada medio."
-        )
+    vista_nubes = st.radio(
+        label="Selecciona el nivel de análisis:",
+        options=[
+            "🌐 Panorama general por diario",
+            "🟠 Keiko Fujimori",
+            "🔴 Roberto Sánchez"
+        ],
+        horizontal=True,
+        key="selector_vista_nubes"
+    )
 
-        col_p21, col_lr = st.columns(2, gap="large")
-
-        # COLUMNA IZQUIERDA: PERÚ21
-        with col_p21:
-            with st.container(border=True):
-                st.markdown("#### 📰 Perú21")
-                st.image(
-                    "assets/wc_general_peru21.png",
-                    caption="Nube léxica general — Columnas de Perú21 (2026)",
-                    use_container_width=True
-                )
+    st.divider()
+    
+# --- SUB-PESTAÑA 1: PANORAMA GENERAL DE AMBOS DIARIOS ---
+    if vista_nubes == "🌐 Panorama general por diario":
+            st.markdown("#### Visibilidad mediática y foco editorial por periódico")
+            st.caption(
+                "Comparación del universo léxico global en las columnas de opinión analizadas. "
+                "Permite identificar qué candidatura concentra mayor atención en la agenda de cada medio."
+            )
+    
+            col_p21, col_lr = st.columns(2, gap="large")
+    
+            # --- TARJETA 1: PERÚ21 ---
+            with col_p21:
+                with st.container(border=True):
+                    st.markdown("#### 📰 Perú21")
+                    st.image(
+                        "assets/wc_general_peru21.png",
+                        caption="Nube léxica general — Columnas de Perú21 (2026)",
+                        use_container_width=True
+                    )
+    
+                    # Indicadores de visibilidad (ajusta los valores según tus conteos exactos)
+                    m1, m2 = st.columns(2)
+                    m1.metric(label="Menciones a Sánchez", value="90 oraciones", delta="71.4% del foco", delta_color="off")
+                    m2.metric(label="Menciones a Keiko", value="36 oraciones", delta="28.6% del foco", delta_color="off")
+    
+                    st.info(
+                        "**Foco editorial (Perú21):** Se evidencia una marcada asimetría en la atención mediática. "
+                        "**Roberto Sánchez** domina el centro del debate con más del doble de menciones que "
+                        "**Keiko Fujimori**, reflejando una agenda de opinión enfocada prioritariamente en el "
+                        "escrutinio y cuestionamiento de su candidatura."
+                    )
+    
+            # --- TARJETA 2: LA REPÚBLICA ---
+            with col_lr:
+                with st.container(border=True):
+                    st.markdown("#### 📰 La República")
+                    st.image(
+                        "assets/wc_general_larepublica.png",
+                        caption="Nube léxica general — Columnas de La República (2026)",
+                        use_container_width=True
+                    )
+    
+                    # Indicadores de visibilidad (reemplaza 'XX' con tus conteos reales de La República)
+                    m3, m4 = st.columns(2)
+                    m3.metric(label="Menciones a Keiko", value="XX oraciones", delta="XX% del foco", delta_color="off")
+                    m4.metric(label="Menciones a Sánchez", value="XX oraciones", delta="XX% del foco", delta_color="off")
+    
+                    st.info(
+                        "**Foco editorial (La República):** El mapa léxico muestra el contrapeso editorial frente a "
+                        "*Perú21*, concentrando la densidad de menciones en **Keiko Fujimori** (o el candidato "
+                        "predominante en tu muestra) como eje principal de análisis crítico y fiscalización discursiva."
+                    )               
                 
-                # Métricas de proporción (ajusta los valores según tus datos exactos)
-                m1, m2 = st.columns(2)
-                m1.metric("Menciones Sánchez", "90 oraciones", "71.4%", delta_color="off")
-                m2.metric("Menciones Keiko", "36 oraciones", "28.6%", delta_color="off")
-
-                st.info(
-                "**Foco editorial:** En las columnas de opinión de Perú21, la agenda está"
-                "marcada por el escrutinio constante hacia Sánchez, mientras que la figura de Fujimori "
-                "recibe menor densidad de menciones directa"
-                )
-
-        # COLUMNA DERECHA: LA REPÚBLICA
-        with col_lr:
-            with st.container(border=True):
-                st.markdown("#### 📰 La República")
-                st.image(
-                "assets/wc_general_larepublica.png",
-                caption="Nube léxica general — Columnas de La República (2026)",
-                use_container_width=True
-                )
-
-                # Métricas de proporción (reemplaza 'XX' con tus conteos de La República)
-                m3, m4 = st.columns(2)
-                m3.metric("Menciones Keiko", "XX oraciones", "XX%", delta_color="off")
-                m4.metric("Menciones Sánchez", "XX oraciones", "XX%", delta_color="off")
-
-                st.info(
-                    "**Foco editorial:** Contraste en la distribución de protagonismo respecto a *Perú21*, "
-                    "evidenciando qué candidatura concentra la atención crítica y la fijación de agenda "
-                    "en este diario."
-                )
-
-with tab_nubes:
-    st.header("Palabras más asociadas a cada candidato por diario")
-    subtab_keiko, subtab_sanchez = st.tabs(["Keiko Fujimori", "Roberto Sánchez"])
-
-    with subtab_keiko:
+        
+    # 2. VENTANAS DE ±5 PALABRAS: KEIKO FUJIMORI
+    elif vista_nubes == "🟠 Keiko Fujimori":
+        # Pega aquí (con 8 espacios de sangría) el código que ya tienes para las nubes de Keiko
         # Encabezado visual de Keiko Fujimori
         head_k1, head_k2 = st.columns([1, 7])
         with head_k1:
@@ -375,7 +383,11 @@ with tab_nubes:
                 </div>
             """, unsafe_allow_html=True)
 
-    with subtab_sanchez:
+        pass
+
+    # 3. VENTANAS DE ±5 PALABRAS: ROBERTO SÁNCHEZ
+    elif vista_nubes == "🔴 Roberto Sánchez":
+        # Pega aquí (con 8 espacios de sangría) el código que ya tienes para las nubes de Sánchez
         # Encabezado visual de Roberto Sánchez
         head_s1, head_s2 = st.columns([1, 7])
         with head_s1:
@@ -402,7 +414,7 @@ with tab_nubes:
                 <b>Interpretación:</b> En el gráfico podemos observar las palabras que se mas se repiten a partir de las oraciones que mencionan a ROberto Sánchez en las columnas de opinión de La República. La palbra más repetida es la palabra "Sánchez", seguido de "castillo", palabra que podemos relaionarlo conn el candidato de Juntos por el Perú debido a que durante su campaña electoral, Sánchez intentó reinvidicar la figura del ex-presidente Pedro Castillo (destituido por un intento de golpe de estado fallido) a travé del sombrero, el mismo que usaba Castillo en su campaña presidencial del 2021. Otra palabra que se repite es "antauro", esto por la pólemica conexión entre el candidatos Roberto Sánchez con el ex-militar Antauro Humala, hermano de Ollanta Humala, conocido por liderar el famoso Andahuaylazo. La pólemica surge debido a declaraciones cuestionadas por parte de Humala. Al final de la carrera electoral, Sánchez trató de deslindarse de Antauro, sin embargo, esto le costó las elecciones debido a la peligrosidad que el ex-militar representa.  
                 </div>
             """, unsafe_allow_html=True)
-
+        pass
 # -----------------------------------------------------------------------------
 # PESTAÑA 3: LOS 4 GRÁFICOS DE PASTEL + INTERPRETACIONES
 # -----------------------------------------------------------------------------
