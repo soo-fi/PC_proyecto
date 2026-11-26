@@ -313,7 +313,7 @@ with tab_nubes:
                 with st.container(border=True):
                     st.markdown("#### 📰 Perú21")
                     st.image(
-                        "assets/wc_general_peru21.png",
+                        "assets/nube_peru21.png",
                         caption="Nube léxica general — Columnas de Perú21 (2026)",
                         use_container_width=True
                     )
