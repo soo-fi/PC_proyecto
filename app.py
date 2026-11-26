@@ -183,7 +183,7 @@ with tab_contexto:
             
             st.markdown("""
             * **Línea Editorial:** La República mantiene una linea editorial progresista, enfocado en la defensa de los derechos humanos, la democracia y la justicia social .
-            * **Historia Política:** Fundado en la década de los 80, La República ha mantenido desde sus inicios una postura de oposición frente a los partidos conervadores. Actuó como opositor al gobierno de fujimori (padre) y hasta el día de hoy como crítico del fujimorismo.
+            * **Historia Política:** Fundado en la década de los 80, La República ha mantenido desde sus inicios una postura de oposición frente a los partidos conervadores. Actuó como opositor al gobierno de Fujimori (padre) y hasta el día de hoy como crítico del fujimorismo.
             """)
             
             st.link_button("🌐 Visitar sitio web de La República", "https://larepublica.pe/politicas-y-estandares#estructura-empresarial-y-fundacion", use_container_width=True)
@@ -341,7 +341,7 @@ with tab_nubes:
             st.image("assets/nube_sanchez_larepublica.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 4
             st.markdown("""
                 <div class="interpretacion-box">
-                <b>Interpretación:</b> [Escribe aquí tu análisis sobre las palabras clave de La República sobre Sánchez].
+                <b>Interpretación:</b> En el gráfico podemos observar las palabras que se mas se repiten a partir de las oraciones que mencionan a ROberto Sánchez en las columnas de opinión de La República. La palbra más repetida es la palabra "Sánchez", seguido de "castillo", palabra que podemos relaionarlo conn el candidato de Juntos por el Perú debido a que durante su campaña electoral, Sánchez intentó reinvidicar la figura del ex-presidente Pedro Castillo (destituido por un intento de golpe de estado fallido) a travé del sombrero, el mismo que usaba Castillo en su campaña presidencial del 2021. Otra palabra que se repite es "antauro", esto por la pólemica conexión entre el candidatos Roberto Sánchez con el ex-militar Antauro Humala, hermano de Ollanta Humala, conocido por liderar el famoso Andahuaylazo. La pólemica surge debido a declaraciones cuestionadas por parte de Humala. Al final de la carrera electoral, Sánchez trató de deslindarse de Antauro, sin embargo, esto le costó las elecciones debido a la peligrosidad que el ex-militar representa.  
                 </div>
             """, unsafe_allow_html=True)
 
