@@ -192,39 +192,39 @@ st.divider()
 # BLOQUE A: EXPLORACIÓN VISUAL POR DIARIO (GALERÍA DE COLUMNISTAS)
 # =========================================================================
 st.subheader("📰 Galería de columnistas por diario")
-    diario_galeria = st.selectbox(
-        "Selecciona un diario para ver a sus columnistas:",
-        ["Perú21", "La República"],
-        key="select_diario_galeria"
+diario_galeria = st.selectbox(
+    "Selecciona un diario para ver a sus columnistas:",
+    ["Perú21", "La República"],
+    key="select_diario_galeria"
     )
     
-    if diario_galeria != "-- Selecciona un diario --":
-        df_diario = df_articulos.loc[df_articulos.loc[:, "diario"] == diario_galeria, :].copy()
+if diario_galeria != "-- Selecciona un diario --":
+    df_diario = df_articulos.loc[df_articulos.loc[:, "diario"] == diario_galeria, :].copy()
             
-        # Construir diccionario único de {autor_individual: foto_individual}
-        autores_diario = {}
-        for _, row in df_diario.iterrows():
-            lista_autores = [a.strip() for a in str(row.loc["autor"]).split("|")]
-            lista_fotos = [f.strip() for f in str(row.get("foto_url", "")).split("|")]
+    # Construir diccionario único de {autor_individual: foto_individual}
+    autores_diario = {}
+    for _, row in df_diario.iterrows():
+        lista_autores = [a.strip() for a in str(row.loc["autor"]).split("|")]
+        lista_fotos = [f.strip() for f in str(row.get("foto_url", "")).split("|")]
                 
-            for i, nombre_autor in enumerate(lista_autores):
-                if nombre_autor != "" and nombre_autor not in autores_diario:
-                    foto = lista_fotos[i] if i < len(lista_fotos) and lista_fotos[i] != "" else "https://via.placeholder.com/100?text=Autor"
-                    autores_diario[nombre_autor] = foto
+        for i, nombre_autor in enumerate(lista_autores):
+            if nombre_autor != "" and nombre_autor not in autores_diario:
+                foto = lista_fotos[i] if i < len(lista_fotos) and lista_fotos[i] != "" else "https://via.placeholder.com/100?text=Autor"
+                autores_diario[nombre_autor] = foto
     
-        st.markdown(f"**Columnistas de {diario_galeria} ({len(autores_diario)}):**")
+    st.markdown(f"**Columnistas de {diario_galeria} ({len(autores_diario)}):**")
           
-        # Mostrar fotos en cuadrícula de 5 columnas
-        cols_gal = st.columns(5)
-        for idx, (nombre, foto) in enumerate(sorted(autores_diario.items())):
-            with cols_gal[idx % 5]:
-                with st.container(border=True):
-                    st.image(foto, use_container_width=True)
-                    st.markdown(f"**{nombre}**")
-    else:
-       st.caption("Elige un diario en el menú superior para desplegar las fotografías de todos sus columnistas.")
+    # Mostrar fotos en cuadrícula de 5 columnas
+    cols_gal = st.columns(5)
+    for idx, (nombre, foto) in enumerate(sorted(autores_diario.items())):
+        with cols_gal[idx % 5]:
+            with st.container(border=True):
+                st.image(foto, use_container_width=True)
+                st.markdown(f"**{nombre}**")
+else:
+   st.caption("Elige un diario en el menú superior para desplegar las fotografías de todos sus columnistas.")
     
-    st.divider()
+st.divider()
     
     # =========================================================================
     # BLOQUE B: BUSCADOR POR AUTOR (FOTO DEL AUTOR + SUS ARTÍCULOS)
