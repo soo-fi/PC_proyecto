@@ -403,7 +403,7 @@ with tab_nubes:
             st.image("assets/nube_sanchez_peru21.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 3
             st.markdown("""
                 <div class="interpretacion-box">
-                <b>Interpretación:</b> [Escribe aquí tu análisis sobre las palabras clave de Perú21 sobre Sánchez].
+                <b>Interpretación:</b> El gráfico muestra las palabras que mas se repiten en el corpus de texto que se obtuvo de las columnas de opinión de Perú21. Acompañando a Sánchez se observa la palabra "castillo" y "antauro". Durante la campaña presidencial de Sánchez intentó reinvidicar la figura del ex-presidente Pedro Castillo a través del sobrero chotano. Así mismo, el ex-militar estuvo estrechamente vinculado a Roberto Sánchez, esto aún cuando Humala es cuestionado por algunas declaraciones sobre derechos humanos, mujeres y derechos LGTBQ+. Por últmo, se encuentra la palabra "francke" el ciual hace referencia al ex-ministro de economía del gobierno de Pedro Castillo. Francke también estuvo vinculado a la campaña de Juntos por el Perú, actuando como representante de las propuestas económicas del partido.
                 </div>
             """, unsafe_allow_html=True)
 
