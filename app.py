@@ -348,7 +348,7 @@ with tab_nubes:
                     st.info(
                         "**Foco editorial (La República):** De modo similar a Perú21, en La República 
                         Roberto Sánchez concentra más del doble de menciones que su contrincante Keiko Fujimori, 
-                        siendo el foco de la atención editorial previo a la segunda vuelta. 
+                        siendo el foco de la atención editorial previo a la segunda vuelta." 
                     )               
                 
         
