@@ -154,6 +154,7 @@ with tab_contexto:
                 st.write("Media Chirimoya S.A.C.")
             
             st.markdown("""
+            <style="text-align: justify;">
             * **Línea Editorial:** Perú21 se identifica a sí misma como un diario comprometida con la defensa de la democracia, del libre mercado, la libertad y los derechos civiles. Luego de pasar a manos de Cecilia Valenzuela, señalan que su informacion va dirigida especialmente a la "élites" entendidas, por ejemplo, los sectores de liderazgo.
             * **Historia Política:** Fundado en el 2002 por Bernardo Boca Rey, el diario fue parte del grupo El Comercio hasta su venta en el año 2023. Dió seguimiento a la transición democrática en el año 2000 y fue siguiendo los gobiernos de los presidentes desde aquel año.
             """)
@@ -182,6 +183,7 @@ with tab_contexto:
                 st.write("Grupo La República Publicaciones - Propiedad de la familia Mohme Seminario")
             
             st.markdown("""
+            <style="text-align: justify;">
             * **Línea Editorial:** La República mantiene una linea editorial progresista, enfocado en la defensa de los derechos humanos, la democracia y la justicia social.
             * **Historia Política:** Fundado en la década de los 80, La República ha mantenido desde sus inicios una postura de oposición frente a los partidos conervadores. Actuó como opositor al gobierno de Fujimori (padre) y hasta el día de hoy como crítico del fujimorismo.
             """)
