@@ -507,10 +507,10 @@ with tab_metodologia:
         st.markdown("""
         <div style="text-align: justify;">
             <ul>
-                <li>Corpus:** Artículos de opinión extraídos de Perú21  y La República.
-                <li>Depuración y Segmentación:** Limpieza de texto, eliminación de stopwords y extracción de oraciones por candidato.
-                <li>Modelado de Sentimientos:** Clasificación mediante `pysentimiento` (`POS`, `NEG`, `NEU`).
-                <li><b>Visualización:** Nubes de palabras, gráficos de proporción y cartografía electoral.</b> ...</li>
+                <li><b>Corpus:<b>Artículos de opinión extraídos de Perú21  y La República.<li>
+                <li><b>Depuración y Segmentación:<b>Limpieza de texto, eliminación de stopwords y extracción de oraciones por candidato.
+                <li><b>Modelado de Sentimientos:<b>Clasificación mediante <code>pysentimiento</code> (<code>POS</code>, <code>NEG</code>, <code>NEU</code>).
+                <li><b>Visualización:</b>Nubes de palabras, gráficos de proporción y cartografía electoral.</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
@@ -522,7 +522,7 @@ with tab_metodologia:
                 <li>Se observa que las columnas de opinión de los dos diarios analizados meustran de manera diferente a cada candidato.
                 <li>A través de los gráficos de pastel podemos observar como son los sentimientos de las palabras cuando se refieren a Keiko Fujimori o Roberto Sánchez. En Perú21, se refieren de manera negativa hacia los dos, pero más a Sánchez. En La República se refieren de manera a los dos candidatos, pero hay un porcentaje pequeño de sentimientos positivos hacia Keiko, aunque el procentaje de sentimientos negativos y neutros son iguales, y con Sánchez no hay referencias positivas.
                 <li>A través de las columnas de opinión se identificó que ni Perú21 ni La República actúan neutralmente, sino que sutilmente, en caso de La República, va moldenado el voto de los ciudadanos, o explícitamente llama a votar por un candidato, en el caso de Perú21.
-                <li><b>Visualización:</b> ...</li>
+                <li><b>Visualización:</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
