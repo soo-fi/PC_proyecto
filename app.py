@@ -371,7 +371,6 @@ with tab_nubes:
             st.markdown("""
                 <div class="interpretacion-box" style="text-align: justify;">
                 <b>Interpretación:</b> El gráfico muestra las palabras que más se repiten en los corpus de texto del diario Perú21. La palabra que más se repite es "Keiko", seguido de Sánchez, quien era su contriacnte en la segunda vuelta presidencial 2026. Seguido a esto, encontramos "Castillo" que lo usan para recordar las pasadas elecciones presidenciales del 2022 en donde Keiko Fujimori y Pedro Castillo se enfrentaron. la palabra "reinvidica" podemos relacionarlo con que Keiko queire imitar un gobierno al de su padre, Alberto Fujimori, ex-presidente del Perú, acusado de violeaciones de derechosn humanos y corrupción. Por último, debido a su corte liberal económico, Perú21 pedía votar por la lideresa de Fuerza Popular, quien era un signo de estabilidad económica. 
-                "
                 </div>
             """, unsafe_allow_html=True)
 
