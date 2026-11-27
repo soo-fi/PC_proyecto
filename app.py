@@ -507,4 +507,4 @@ with tab_metodologia:
             <div class="interpretacion-box">
             [Redacta aquí las conclusiones generales de tu estudio].
             </div>
-        """, unsafe_allow_html=True)
+        "", unsafe_allow_html=True)
