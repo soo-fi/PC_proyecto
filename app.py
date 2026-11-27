@@ -77,7 +77,7 @@ cant_larep = len(df_articulos.loc[df_articulos.loc[:, "diario"] == "La Repúblic
 # =============================================================================
 # 3. PORTADA / HERO SECTION (CON FOTOS DE LOS CANDIDATOS)
 # =============================================================================
-st.markdown('<h1 class="main-title" style="text-align: center; font-size: 3rem;"> Prensa y polarización: el discurso de opinión en la segunda vuelta Perú 2026 </h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="main-title" style="text-align: center; font-size: 3.5rem;"> Prensa y polarización: el discurso de opinión en la segunda vuelta Perú 2026 </h1>', unsafe_allow_html=True)
 st.markdown('<p class="sub-title">Análisis computacional de los artículos de opinión publicados por los diarios Perú21 y La República sobre los candidatos presidenciales Keiko Fujimori y Roberto Sánchez en las tres semanas previas a la segunda vuelta presidencial 2026 .</p>', unsafe_allow_html=True)
 
 col_keiko, col_corpus, col_sanchez = st.columns([1.2, 1.4, 1.2])
