@@ -505,6 +505,8 @@ with tab_metodologia:
         st.subheader("Conclusiones principales")
         st.markdown("""
             <div class="interpretacion-box" style="text-align: justify;">
-            [Redacta aquí las conclusiones generales de tu estudio].
+            * **Podemos identificar**
+            * **Historia Política:** Fundado en el 2002 por Bernardo Boca Rey, el diario fue parte del grupo El Comercio hasta su venta en el año 2023. Dió seguimiento a la transición democrática en el año 2000 y fue siguiendo los gobiernos de los presidentes desde aquel año.
+            """)
             </div>
         """, unsafe_allow_html=True)
