@@ -342,8 +342,9 @@ with tab_nubes:
     
                     # Indicadores de visibilidad (reemplaza 'XX' con tus conteos reales de La República)
                     m3, m4 = st.columns(2)
-                    m3.metric(label="Menciones a Keiko", value="45 oraciones")
-                    m4.metric(label="Menciones a Sánchez", value="114 oraciones")
+                    m3.metric(label="Menciones a Sánchez", value="114 oraciones")
+                    m4.metric(label="Menciones a Keiko", value="45 oraciones")
+                    
     
                     st.info(
                         "**Foco editorial:** De modo similar a Perú21, en La República " 
