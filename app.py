@@ -335,7 +335,7 @@ with tab_nubes:
                 with st.container(border=True):
                     st.markdown("#### 📰 La República")
                     st.image(
-                        "assets/nube_keiko_larepublica.png",
+                        "assets/nube_larepublica.png",
                         caption="Nube léxica general — Columnas de La República (2026)",
                         use_container_width=True
                     )
