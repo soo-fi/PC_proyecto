@@ -459,7 +459,7 @@ with tab_pastel:
         st.image("assets/pastel_sanchez_larepublica.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 8
         st.markdown("""
             <div class="interpretacion-box" style="text-align: justify;">
-            <b>Interpretación:</b> [Explica aquí los porcentajes hacia Sánchez en La República].
+            <b>Interpretación:</b> Este gráfico se muestra diferente ante los demás debido a que no se identificó algún sentimiento positivo en las oraciones en donde se menciona a Roberto Sanchez. Los sentimientos negativos alcanzan el 65.8%, mientras que los sentimientos neutrales alcanzan el 34.2%. Este gráfico tambien se puede mostrar un poco confuso, sin embargo, Sánchez en su campaña electoral representó inestabiidad económica y social por los antecedentes del gobierno de Pedro Castillo.
             </div>
         """, unsafe_allow_html=True)
 
