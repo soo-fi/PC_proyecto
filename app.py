@@ -507,10 +507,10 @@ with tab_metodologia:
         st.markdown("""
         <div style="text-align: justify;">
             <ul>
-                <li><b>Corpus:</li> Artículos de opinión extraídos de Perú21  y La República.
-                <li><b>Depuración y Segmentación:</li> Limpieza de texto, eliminación de stopwords y extracción de oraciones por candidato.
-                <li><b>Modelado de Sentimientos:</li> Clasificación mediante <code>pysentimiento</code> (<code>POS</code>, <code>NEG</code>, <code>NEU</code>).
-                <li><b>Visualización:</li> Nubes de palabras, gráficos de proporción y cartografía electoral.
+                <li><b>Corpus:</li>Artículos de opinión extraídos de Perú21  y La República.
+                <li><b>Depuración y Segmentación:</li>Limpieza de texto, eliminación de stopwords y extracción de oraciones por candidato.
+                <li><b>Modelado de Sentimientos:</li>Clasificación mediante <code>pysentimiento</code> (<code>POS</code>, <code>NEG</code>, <code>NEU</code>).
+                <li><b>Visualización:</li>Nubes de palabras, gráficos de proporción y cartografía electoral.
             </ul>
         </div>
         """, unsafe_allow_html=True)
