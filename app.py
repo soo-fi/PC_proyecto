@@ -504,8 +504,8 @@ with tab_metodologia:
     with col_met2:
         st.subheader("Conclusiones principales")
         st.markdown("""
-        * **Corpus:** Artículos de opinión extraídos de *Perú21* y *La República*.
-        * **Depuración y Segmentación:** Limpieza de texto, eliminación de *stopwords* y extracción de oraciones por candidato.
-        * **Modelado de Sentimientos:** Clasificación mediante `pysentimiento` (`POS`, `NEG`, `NEU`).
-        * **Visualización:** Nubes de palabras, gráficos de proporción y cartografía electoral.
+        * **Se observa que las columnas de opinión de los dos diarios analizados meustran de manera diferente a cada candidato.**
+        * **A través de los gráficos de pastel podemos observar como son los sentimientos de las palabras cuando se refieren a Keiko Fujimori o Roberto Sánchez. En Perú21, se refieren de manera negativa hacia los dos, pero más a Sánchez. En La República se refieren de manera a los dos candidatos, pero hay un porcentaje pequeño de sentimientos positivos hacia Keiko, aunque el procentaje de sentimientos negativos y neutros son iguales, y con Sánchez no hay referencias positivas.** 
+        * **Modelado de Sentimientos:**
+        * **Visualización:**
         """)
