@@ -12,7 +12,7 @@ import streamlit.components.v1 as components
 import pandas as pd
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&display=swap');
 
     html, body, [class*="css"], h1, h2, h3, p, div, span {
         font-family: 'IM Fell French Canon SC', monospace !important;
