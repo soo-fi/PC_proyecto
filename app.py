@@ -12,10 +12,10 @@ import streamlit.components.v1 as components
 import pandas as pd
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Grenze:ital,wght@0,100..900;1,100..900&family=IM+Fell+French+Canon+SC&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Grenze:ital,wght@0,100..900;1,100..900&family=IM+Fell+French+Canon+SC&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
 
     html, body, [class*="css"], h1, h2, h3, p, div, span {
-        font-family: 'Grenze', monospace !important;
+        font-family: 'Libre Baskerville', monospace !important;
     }
     </style>
 """, unsafe_allow_html=True)
