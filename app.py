@@ -283,7 +283,7 @@ with tab_contexto:
 # PESTAÑA 2: LAS 4 NUBES DE PALABRAS + FOTOS DE CANDIDATOS + INTERPRETACIONES
 # -----------------------------------------------------------------------------
 with tab_nubes: 
-    st.subheader("☁️ Nubes de palabras")
+    st.header("Nubes de palabras")
 
     vista_nubes = st.radio(
         label="Selecciona el nivel de análisis:",
