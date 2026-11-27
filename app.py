@@ -80,7 +80,7 @@ with col_keiko:
         with c_foto_k:
             st.image("assets/foto_keiko.png", use_container_width=True)  # <--- FOTO DE KEIKO
         with c_info_k:
-            st.metric(label="Keiko Fujimori", value="50,135%", delta="Segunda vuelta")
+            st.metric(label="Keiko Fujimori", value="50,135%", delta="Votos-Segunda vuelta")
 
 # --- BLOQUE CENTRAL: RESUMEN DE ARTÍCULOS Y ORACIONES ---
 with col_corpus:
@@ -106,7 +106,7 @@ with col_sanchez:
         with c_foto_s:
             st.image("assets/foto_sanchez.png", use_container_width=True)  # <--- FOTO DE SÁNCHEZ
         with c_info_s:
-            st.metric(label="Roberto Sánchez", value="49,641%", delta="Segunda vuelta")
+            st.metric(label="Roberto Sánchez", value="49,641%", delta="Votos-Segunda vuelta")
 
 st.divider()
 # =============================================================================
@@ -283,7 +283,7 @@ with tab_contexto:
 # PESTAÑA 2: LAS 4 NUBES DE PALABRAS + FOTOS DE CANDIDATOS + INTERPRETACIONES
 # -----------------------------------------------------------------------------
 with tab_nubes: 
-    st.subheader("☁️ Análisis léxico y nubes de palabras")
+    st.subheader("☁️ Nubes de palabras")
 
     vista_nubes = st.radio(
         label="Selecciona el nivel de análisis:",
@@ -300,10 +300,10 @@ with tab_nubes:
     
 # --- SUB-PESTAÑA 1: PANORAMA GENERAL DE AMBOS DIARIOS ---
     if vista_nubes == "🌐 Panorama general por diario":
-            st.markdown("#### Visibilidad mediática y foco editorial por periódico")
+            st.markdown("#### Palabras más repetidas en los artículos de opinión por periódico")
             st.caption(
-                "Comparación del universo léxico global en las columnas de opinión analizadas. "
-                "Permite identificar qué candidatura concentra mayor atención en la agenda de cada medio."
+                "Las nubes de palabras muestran el universo léxico general de las columnas de opinión analizadas. "
+                "Esto permite identificar qué candidatura concentra mayor atención en la agenda de cada diario."
             )
     
             col_p21, col_lr = st.columns(2, gap="large")
@@ -320,14 +320,14 @@ with tab_nubes:
     
                     # Indicadores de visibilidad (ajusta los valores según tus conteos exactos)
                     m1, m2 = st.columns(2)
-                    m1.metric(label="Menciones a Sánchez", value="90 oraciones", delta="71.4% del foco", delta_color="off")
-                    m2.metric(label="Menciones a Keiko", value="36 oraciones", delta="28.6% del foco", delta_color="off")
+                    m1.metric(label="Menciones a Sánchez", value="90 oraciones")
+                    m2.metric(label="Menciones a Keiko", value="36 oraciones")
     
                     st.info(
-                        "**Foco editorial (Perú21):** Se evidencia una marcada asimetría en la atención mediática. "
+                        "**Foco editorial:** En Perú21 se observa una marcada asimetría en la atención mediática. "
                         "**Roberto Sánchez** domina el centro del debate con más del doble de menciones que "
-                        "**Keiko Fujimori**, reflejando una agenda de opinión enfocada prioritariamente en el "
-                        "escrutinio y cuestionamiento de su candidatura."
+                        "**Keiko Fujimori**, lo que refleja una agenda de opinión enfocada prioritariamente en el "
+                        "el candidato de Juntos por el Perú."
                     )
     
             # --- TARJETA 2: LA REPÚBLICA ---
@@ -342,17 +342,17 @@ with tab_nubes:
     
                     # Indicadores de visibilidad (reemplaza 'XX' con tus conteos reales de La República)
                     m3, m4 = st.columns(2)
-                    m3.metric(label="Menciones a Keiko", value="XX oraciones", delta="XX% del foco", delta_color="off")
-                    m4.metric(label="Menciones a Sánchez", value="XX oraciones", delta="XX% del foco", delta_color="off")
+                    m3.metric(label="Menciones a Keiko", value="45 oraciones")
+                    m4.metric(label="Menciones a Sánchez", value="114 oraciones")
     
                     st.info(
-                        "**Foco editorial (La República):** El mapa léxico muestra el contrapeso editorial frente a "
-                        "*Perú21*, concentrando la densidad de menciones en **Keiko Fujimori** (o el candidato "
-                        "predominante en tu muestra) como eje principal de análisis crítico y fiscalización discursiva."
+                        "**Foco editorial (La República):** De modo similar a Perú21, en La República 
+                        Roberto Sánchez concentra más del doble de menciones que su contrincante Keiko Fujimori, 
+                        siendo el foco de la atención editorial previo a la segunda vuelta. 
                     )               
                 
         
-    # 2. VENTANAS DE ±5 PALABRAS: KEIKO FUJIMORI
+    # 2. VENTANAS: KEIKO FUJIMORI
     elif vista_nubes == "🟠 Keiko Fujimori":
         # Pega aquí (con 8 espacios de sangría) el código que ya tienes para las nubes de Keiko
         # Encabezado visual de Keiko Fujimori
@@ -385,7 +385,7 @@ with tab_nubes:
 
         pass
 
-    # 3. VENTANAS DE ±5 PALABRAS: ROBERTO SÁNCHEZ
+    # 3. VENTANAS: ROBERTO SÁNCHEZ
     elif vista_nubes == "🔴 Roberto Sánchez":
         # Pega aquí (con 8 espacios de sangría) el código que ya tienes para las nubes de Sánchez
         # Encabezado visual de Roberto Sánchez
