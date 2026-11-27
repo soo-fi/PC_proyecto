@@ -2,10 +2,10 @@
 primaryColor = "#790D16"
 backgroundColor = "#F5EFE1"
 secondaryBackgroundColor = "#E5D3AF"
-font = "Grenze"
-codeFont = "Grenze"
-headingFont = "Grenze"
+font = "Libre Baskerville"
+codeFont = "Libre Baskerville"
+headingFont = "Libre Baskerville"
 
 [[theme.fontFaces]]
-family = "Grenze"
-url = "https://fonts.googleapis.com/css2?family=Grenze:ital,wght@0,100..900;1,100..900&family=IM+Fell+French+Canon+SC&display=swap"
+family = "Libre Baskerville"
+url = "https://fonts.googleapis.com/css2?family=Grenze:ital,wght@0,100..900;1,100..900&family=IM+Fell+French+Canon+SC&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap"
