@@ -505,11 +505,15 @@ with tab_metodologia:
     with col_met1:
         st.subheader("Flujo de procesamiento (Python)")
         st.markdown("""
-        * **Corpus:** Artículos de opinión extraídos de *Perú21* y *La República*.
-        * **Depuración y Segmentación:** Limpieza de texto, eliminación de *stopwords* y extracción de oraciones por candidato.
-        * **Modelado de Sentimientos:** Clasificación mediante `pysentimiento` (`POS`, `NEG`, `NEU`).
-        * **Visualización:** Nubes de palabras, gráficos de proporción y cartografía electoral.
-        """)
+        <div style="text-align: justify;">
+            <ul>
+                <li>Corpus:** Artículos de opinión extraídos de **Perú21* y *La República**.
+                <li>Depuración y Segmentación:** Limpieza de texto, eliminación de **stopwords** y extracción de oraciones por candidato.
+                <li>Modelado de Sentimientos:** Clasificación mediante `pysentimiento` (`POS`, `NEG`, `NEU`).
+                <li><b>Visualización:** Nubes de palabras, gráficos de proporción y cartografía electoral.</b> ...</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
     with col_met2:
         st.subheader("Conclusiones principales")
         st.markdown("""
