@@ -504,7 +504,8 @@ with tab_metodologia:
     with col_met2:
         st.subheader("Conclusiones principales")
         st.markdown("""
-            <div class="interpretacion-box" style="text-align: justify;">
-            * **Podemos identificar**
-            * **Historia Política:** Fundado en el 2002 por Bernardo Boca Rey, el diario fue parte del grupo El Comercio hasta su venta en el año 2023. Dió seguimiento a la transición democrática en el año 2000 y fue siguiendo los gobiernos de los presidentes desde aquel año.
-        """, unsafe_allow_html=True)
+        * **Corpus:** Artículos de opinión extraídos de *Perú21* y *La República*.
+        * **Depuración y Segmentación:** Limpieza de texto, eliminación de *stopwords* y extracción de oraciones por candidato.
+        * **Modelado de Sentimientos:** Clasificación mediante `pysentimiento` (`POS`, `NEG`, `NEU`).
+        * **Visualización:** Nubes de palabras, gráficos de proporción y cartografía electoral.
+        """)
