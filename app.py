@@ -320,9 +320,9 @@ with tab_nubes:
     
                     # Indicadores de visibilidad (ajusta los valores según tus conteos exactos)
                     m1, m2 = st.columns(2)
-                    m1.metric(label="Menciones a Sánchez", value="90 oraciones")
-                    m2.metric(label="Menciones a Keiko", value="36 oraciones")
-    
+                    m1.metric(label="Menciones a Keiko", value="36 oraciones")
+                    m2.metric(label="Menciones a Sánchez", value="90 oraciones")
+
                     st.info(
                         "**Foco editorial:** En Perú21 se observa una marcada asimetría en la atención mediática. "
                         "**Roberto Sánchez** domina el centro del debate con más del doble de menciones que "
@@ -342,8 +342,8 @@ with tab_nubes:
     
                     # Indicadores de visibilidad (reemplaza 'XX' con tus conteos reales de La República)
                     m3, m4 = st.columns(2)
-                    m3.metric(label="Menciones a Sánchez", value="114 oraciones")
-                    m4.metric(label="Menciones a Keiko", value="45 oraciones")
+                    m3.metric(label="Menciones a Keiko", value="45 oraciones")
+                    m4.metric(label="Menciones a Sánchez", value="114 oraciones")
                     
     
                     st.info(
