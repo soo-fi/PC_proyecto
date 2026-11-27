@@ -153,7 +153,7 @@ with tab_contexto:
                 st.markdown("**Grupo Propietario:**")
                 st.write("Media Chirimoya S.A.C.")
             
-            st.markdown("" 
+            st.markdown(""" 
             * **Línea Editorial:** Perú21 se identifica a sí misma como un diario comprometida con la defensa de la democracia, del libre mercado, la libertad y los derechos civiles. Luego de pasar a manos de Cecilia Valenzuela, señalan que su informacion va dirigida especialmente a la "élites" entendidas, por ejemplo, los sectores de liderazgo.
             * **Historia Política:** Fundado en el 2002 por Bernardo Boca Rey, el diario fue parte del grupo El Comercio hasta su venta en el año 2023. Dió seguimiento a la transición democrática en el año 2000 y fue siguiendo los gobiernos de los presidentes desde aquel año.
             """)
