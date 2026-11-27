@@ -507,8 +507,8 @@ with tab_metodologia:
         st.markdown("""
         <div style="text-align: justify;">
             <ul>
-                <li>Corpus:** Artículos de opinión extraídos de **Perú21* y *La República**.
-                <li>Depuración y Segmentación:** Limpieza de texto, eliminación de **stopwords** y extracción de oraciones por candidato.
+                <li>Corpus:** Artículos de opinión extraídos de ***Perú21*** y ***La República***.
+                <li>Depuración y Segmentación:** Limpieza de texto, eliminación de ***stopwords*** y extracción de oraciones por candidato.
                 <li>Modelado de Sentimientos:** Clasificación mediante `pysentimiento` (`POS`, `NEG`, `NEU`).
                 <li><b>Visualización:** Nubes de palabras, gráficos de proporción y cartografía electoral.</b> ...</li>
             </ul>
