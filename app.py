@@ -503,7 +503,7 @@ with tab_metodologia:
         """)
     with col_met2:
         st.subheader("Conclusiones principales")
-        st.markdown("""
+        st.markdown(""
             <div class="interpretacion-box">
             [Redacta aquí las conclusiones generales de tu estudio].
             </div>
