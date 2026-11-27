@@ -369,7 +369,7 @@ with tab_nubes:
             st.subheader("Perú21 — Keiko Fujimori")
             st.image("assets/nube_keiko_peru21.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 1
             st.markdown("""
-                <div class="interpretacion-box">
+                <div class="interpretacion-box" style="text-align: justify;">
                 <b>Interpretación:</b> El gráfico muestra las palabras que más se repiten en los corpus de texto del diario Perú21. La palabra que más se repite es "Keiko", seguido de Sánchez, quien era su contriacnte en la segunda vuelta presidencial 2026. Seguido a esto, encontramos "Castillo" que lo usan para recordar las pasadas elecciones presidenciales del 2022 en donde Keiko Fujimori y Pedro Castillo se enfrentaron. la palabra "reinvidica" podemos relacionarlo con que Keiko queire imitar un gobierno al de su padre, Alberto Fujimori, ex-presidente del Perú, acusado de violeaciones de derechosn humanos y corrupción. Por último, debido a su corte liberal económico, Perú21 pedía votar por la lideresa de Fuerza Popular, quien era un signo de estabilidad económica. 
                 "
                 </div>
@@ -379,7 +379,7 @@ with tab_nubes:
             st.subheader("La República — Keiko Fujimori")
             st.image("assets/nube_keiko_larepublica.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 2
             st.markdown("""
-                <div class="interpretacion-box">
+                <div class="interpretacion-box" style="text-align: justify;">
                 <b>Interpretación:</b> El gráfico podemos observar las palabras que mas se repiten las columnas de opinión analizadas. Vemos como se repite el nombre "Keiko", acompañado de "Sánchez" quien es fue su contricante en la segunda vuelta de las elecciones presidenciales. Otra palabra repetida es "padre", esta palabra se relaciona con el hecho de que Keiko Fujimori es la hija del ex-presidente Alberto Fujimori, cuestionado por violaciones a derechos humanos y corrupción. La palabra "congreso" se puede relacionar con los cuestionamientos hacia las bancadas del Congreso de Fuerza Popular desde el año 2016, acusadas de obtruccionismo hacia los gobiernos de turno. 
                 </div>
             """, unsafe_allow_html=True)
@@ -402,7 +402,7 @@ with tab_nubes:
             st.subheader("Perú21 — Roberto Sánchez")
             st.image("assets/nube_sanchez_peru21.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 3
             st.markdown("""
-                <div class="interpretacion-box">
+                <div class="interpretacion-box" style="text-align: justify;">
                 <b>Interpretación:</b> El gráfico muestra las palabras que mas se repiten en el corpus de texto que se obtuvo de las columnas de opinión de Perú21. Acompañando a Sánchez se observa la palabra "castillo" y "antauro". Durante la campaña presidencial de Sánchez intentó reinvidicar la figura del ex-presidente Pedro Castillo a través del sobrero chotano. Así mismo, el ex-militar estuvo estrechamente vinculado a Roberto Sánchez, esto aún cuando Humala es cuestionado por algunas declaraciones sobre derechos humanos, mujeres y derechos LGTBQ+. Por últmo, se encuentra la palabra "francke" el ciual hace referencia al ex-ministro de economía del gobierno de Pedro Castillo. Francke también estuvo vinculado a la campaña de Juntos por el Perú, actuando como representante de las propuestas económicas del partido.
                 </div>
             """, unsafe_allow_html=True)
@@ -411,7 +411,7 @@ with tab_nubes:
             st.subheader("La República — Roberto Sánchez")
             st.image("assets/nube_sanchez_larepublica.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 4
             st.markdown("""
-                <div class="interpretacion-box">
+                <div class="interpretacion-box" style="text-align: justify;">
                 <b>Interpretación:</b> En el gráfico podemos observar las palabras que se mas se repiten a partir de las oraciones que mencionan a ROberto Sánchez en las columnas de opinión de La República. La palbra más repetida es la palabra "Sánchez", seguido de "castillo", palabra que podemos relaionarlo conn el candidato de Juntos por el Perú debido a que durante su campaña electoral, Sánchez intentó reinvidicar la figura del ex-presidente Pedro Castillo (destituido por un intento de golpe de estado fallido) a travé del sombrero, el mismo que usaba Castillo en su campaña presidencial del 2021. Otra palabra que se repite es "antauro", esto por la pólemica conexión entre el candidatos Roberto Sánchez con el ex-militar Antauro Humala, hermano de Ollanta Humala, conocido por liderar el famoso Andahuaylazo. La pólemica surge debido a declaraciones cuestionadas por parte de Humala. Al final de la carrera electoral, Sánchez trató de deslindarse de Antauro, sin embargo, esto le costó las elecciones debido a la peligrosidad que el ex-militar representa.  
                 </div>
             """, unsafe_allow_html=True)
