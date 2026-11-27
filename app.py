@@ -182,7 +182,7 @@ with tab_contexto:
                 st.write("Grupo La República Publicaciones - Propiedad de la familia Mohme Seminario")
             
             st.markdown("""
-            * **Línea Editorial:** La República mantiene una linea editorial progresista, enfocado en la defensa de los derechos humanos, la democracia y la justicia social .
+            * **Línea Editorial:** La República mantiene una linea editorial progresista, enfocado en la defensa de los derechos humanos, la democracia y la justicia social.
             * **Historia Política:** Fundado en la década de los 80, La República ha mantenido desde sus inicios una postura de oposición frente a los partidos conervadores. Actuó como opositor al gobierno de Fujimori (padre) y hasta el día de hoy como crítico del fujimorismo.
             """)
             
@@ -429,7 +429,7 @@ with tab_pastel:
         st.image("assets/pastel_keiko_peru21.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 5
         st.markdown("""
             <div class="interpretacion-box">
-            <b>Interpretación:</b> [Explica aquí los porcentajes hacia Keiko en Perú21].
+            <b>Interpretación:</b> El analizador de sentimientos arrojó, sobre las oraciones en donde se menciona a Keiko Fujimori de la columnas de opinión, un total de 63.9% de sentimientos negativos hacia la lideresa de Fuerza Popular. Los sentimientos positivos solo suben al 2.8%, mientars que, los sentimientos neutro obtienen un porcentaje de 33.3%. Viendo los resultados podemos identifcar que en las oraciones en donde se menciona a Fujimori se habla de manera o se refieren de manera negativa hacia ella, lo negativo predomina en las columnas de opinión.   .
             </div>
         """, unsafe_allow_html=True)
 
@@ -438,7 +438,7 @@ with tab_pastel:
         st.image("assets/pastel_sanchez_peru21.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 6
         st.markdown("""
             <div class="interpretacion-box">
-            <b>Interpretación:</b> [Explica aquí los porcentajes hacia Sánchez en Perú21].
+            <b>Interpretación:</b> En el gráfico se puede observar que el líder de untos por el Perú obtuvo un 73.3% de sentimeintos negativos, la diferencia con el porcentaje que obtuvo Keiko es de 9.4%, en donde Sánchez obtiene mas sentimientos negativos a través de las columnas de opinión de este diario. Sin embargo, obtiene una diferencia sobre Keiko de 2.8% en sentimientos positivos. Por último, el porcentaje neutro en el líder de Juntos por el perú cambia, obteniendo así un prcentaje de 21.1%, a diferencia de Keiko que obtuvo un 33.3%.
             </div>
         """, unsafe_allow_html=True)
 
