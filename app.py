@@ -505,7 +505,7 @@ with tab_metodologia:
     with col_met1:
         st.subheader("Flujo de procesamiento (Python)")
         st.markdown("""
-        <div style="text-align: justify;">
+        <div style="text-align: justify; font-size: 1.8rem;">
         <ul>
         <li><b>Corpus:</b> Artículos de opinión extraídos de Perú21  y La República.
         <li><b>Depuración y Segmentación:</b> Limpieza de texto, eliminación de stopwords y extracción de oraciones por candidato.
