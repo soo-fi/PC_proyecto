@@ -428,7 +428,7 @@ with tab_pastel:
         st.markdown("**Sentimientos hacia Keiko Fujimori (Perú21)**")
         st.image("assets/pastel_keiko_peru21.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 5
         st.markdown("""
-            <div class="interpretacion-box">
+            <div class="interpretacion-box" style="text-align: justify;">
             <b>Interpretación:</b> El analizador de sentimientos arrojó, sobre las oraciones en donde se menciona a Keiko Fujimori de la columnas de opinión, un total de 63.9% de sentimientos negativos hacia la lideresa de Fuerza Popular. Los sentimientos positivos solo suben al 2.8%, mientars que, los sentimientos neutro obtienen un porcentaje de 33.3%. Viendo los resultados podemos identifcar que en las oraciones en donde se menciona a Fujimori se habla de manera o se refieren de manera negativa hacia ella, lo negativo predomina en las columnas de opinión.   .
             </div>
         """, unsafe_allow_html=True)
@@ -437,8 +437,8 @@ with tab_pastel:
         st.markdown("**Sentimientos hacia Roberto Sánchez (Perú21)**")
         st.image("assets/pastel_sanchez_peru21.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 6
         st.markdown("""
-            <div class="interpretacion-box">
-            <b>Interpretación:</b> En el gráfico se puede observar que el líder de untos por el Perú obtuvo un 73.3% de sentimeintos negativos, la diferencia con el porcentaje que obtuvo Keiko es de 9.4%, en donde Sánchez obtiene mas sentimientos negativos a través de las columnas de opinión de este diario. Sin embargo, obtiene una diferencia sobre Keiko de 2.8% en sentimientos positivos. Por último, el porcentaje neutro en el líder de Juntos por el perú cambia, obteniendo así un prcentaje de 21.1%, a diferencia de Keiko que obtuvo un 33.3%.
+            <div class="interpretacion-box" style="text-align: justify;">
+            <b>Interpretación:</b> En el gráfico se puede observar que el líder de Juntos por el Perú obtuvo un 73.3% de sentimientos negativos, la diferencia con el porcentaje que obtuvo Keiko es de 9.4%, en donde Sánchez obtiene mas sentimientos negativos a través de las columnas de opinión de este diario. Sin embargo, obtiene una diferencia sobre Keiko de 2.8% en sentimientos positivos. Por último, el porcentaje neutro en el líder de Juntos por el perú cambia, obteniendo así un prcentaje de 21.1%, a diferencia de Keiko que obtuvo un 33.3%.
             </div>
         """, unsafe_allow_html=True)
 
@@ -450,7 +450,7 @@ with tab_pastel:
         st.markdown("**Sentimientos hacia Keiko Fujimori (La República)**")
         st.image("assets/pastel_keiko_larepublica.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 7
         st.markdown("""
-            <div class="interpretacion-box">
+            <div class="interpretacion-box" style="text-align: justify;">
             <b>Interpretación:</b> [Explica aquí los porcentajes hacia Keiko en La República].
             </div>
         """, unsafe_allow_html=True)
@@ -459,7 +459,7 @@ with tab_pastel:
         st.markdown("**Sentimientos hacia Roberto Sánchez (La República)**")
         st.image("assets/pastel_sanchez_larepublica.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 8
         st.markdown("""
-            <div class="interpretacion-box">
+            <div class="interpretacion-box" style="text-align: justify;">
             <b>Interpretación:</b> [Explica aquí los porcentajes hacia Sánchez en La República].
             </div>
         """, unsafe_allow_html=True)
@@ -482,7 +482,7 @@ with tab_mapa:
     with col_texto_mapa:
         st.subheader("Interpretación territorial y mediática")
         st.markdown("""
-            <div class="interpretacion-box">
+            <div class="interpretacion-box" style="text-align: justify;">
             <b>Análisis de resultados:</b><br><br>
             El mapa muestra las regiones en donde ganó Keiko Fujimori y Roberto Sánchez. La lideresa de Fuerza Popular logró una victoria en 9 de 25 regiones en el Perú, mientras que el lider de Juntos por el Perú logró una victoria en 16 regiones. Podemos observar que la tendencia se divide así: Keiko Fujimori triunfó sobre todo en regiones del Norte, en Lima e Ica, Roberto Sánchez obtuvo el apoyo de regiones del Centro y Sur del Perú especialmente. Si solo se contabilizará los votos del Perú, el ganador habría sido Roberto Sánchez, sin embargo, Keiko Fujimori salió ganadora de las elecciones presidenciales 2026 gracias a los votos de los peruanos en el extranjero.
             </div>
