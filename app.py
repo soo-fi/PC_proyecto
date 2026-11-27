@@ -450,7 +450,7 @@ with tab_pastel:
         st.image("assets/pastel_keiko_larepublica.png", use_container_width=True)  # <--- AQUÍ INGRESAS TU GRÁFICO 7
         st.markdown("""
             <div class="interpretacion-box" style="text-align: justify;">
-            <b>Interpretación:</b> [Explica aquí los porcentajes hacia Keiko en La República].
+            <b>Interpretación:</b> El gráfico muestra que en las oraciones en donde se mencionan Keiko Fujimori en La República hay una tendencia de referirse a ella de modo neutral y negativo, los cuales muestra un porcentaje de 46.7%. Por otro lado, los sentimientos identificados solo se muestran en un 6.7%, más que el porcentaje en Perú21 (2.8%). Los resultados de este análisis pueden resultar un poco confuso sobre todo por el historial antifujimorista que posee La República. Una respuesta a estos resultados podría ser que después del historial de Pedro Castillo en el gobierno, Keiko Fujimori se presente como una estabiolidad económica y social, luego de las vacancias constantes desde el 2020, que inició con Martín Vizcarra.
             </div>
         """, unsafe_allow_html=True)
 
