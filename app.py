@@ -346,9 +346,9 @@ with tab_nubes:
                     m4.metric(label="Menciones a Sánchez", value="114 oraciones")
     
                     st.info(
-                        "**Foco editorial (La República):** De modo similar a Perú21, en La República 
-                        Roberto Sánchez concentra más del doble de menciones que su contrincante Keiko Fujimori, 
-                        siendo el foco de la atención editorial previo a la segunda vuelta." 
+                        "**Foco editorial:** De modo similar a Perú21, en La República" 
+                        "**Roberto Sánchez** concentra más del doble de menciones que su contrincante **Keiko Fujimori**," 
+                        "siendo el foco de la atención editorial previo a la segunda vuelta." 
                     )               
                 
         
