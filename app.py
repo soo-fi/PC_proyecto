@@ -503,8 +503,8 @@ with tab_metodologia:
         """)
     with col_met2:
         st.subheader("Conclusiones principales")
-        st.markdown(""
-            <div class="interpretacion-box">
+        st.markdown("""
+            <div class="interpretacion-box" style="text-align: justify;">
             [Redacta aquí las conclusiones generales de tu estudio].
             </div>
-        "", unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
